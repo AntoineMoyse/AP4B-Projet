@@ -53,6 +53,7 @@ public class GraphUI implements Displayable {
 		Vertice PSA = new Vertice("PSA");
 		Vertice TNA = new Vertice("TNA");
 		Vertice CMA = new Vertice("CMA");
+		
 		g.insertVertex(MTA);
 		g.insertVertex(MTB);
 		g.insertVertex(MTC);
