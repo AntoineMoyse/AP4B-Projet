@@ -53,11 +53,15 @@ public class GameManager {
 		Players.add(p2);
 		
 		Createdeck();
-		System.out.println(deckcredit.toString());
+		
 		Collections.shuffle(deckcredit);
-		System.out.println(deckcredit.toString());
+		//System.out.println(deckcredit.toString());
 		
 		PlayerCount = Players.size();
+	}
+	
+	public void printDeck() {
+		System.out.println(deckcredit.toString());
 	}
 	
 	public Player getCurrentPlayer() {
@@ -76,5 +80,24 @@ public class GameManager {
 	
 	public int getRound() {
 		return Round;
+	}
+	
+	
+	//pick une carte crédit
+	public CreditCard pickCreditCard(int index) {
+		
+		CreditCard temp = new CreditCard(this.deckcredit.get(index));	//on recup la carte dans une variable temporaire
+		this.deckcredit.remove(index);	// on supprime la carte du deck
+		
+		return temp;	
+	}
+	
+	//pick une carte destination
+	public DestinationGoalCard pickDestinationGoalCard(int index) {
+		
+		DestinationGoalCard temp = new DestinationGoalCard(this.deckdestination.get(index));//on recup la carte dans une variable temporaire
+		this.deckdestination.remove(index);// on supprime la carte du deck
+		
+		return temp;
 	}
 }

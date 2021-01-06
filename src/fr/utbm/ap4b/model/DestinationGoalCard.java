@@ -10,6 +10,12 @@ public class DestinationGoalCard implements Card {
 		this.goal=goal;
 		this.point=point;
 	}
+	
+	public DestinationGoalCard(DestinationGoalCard card) {
+		this.start=card.getStart();
+		this.goal=card.getGoal();
+		this.point=card.getPoint();
+	}
 
 	public Vertice getStart() {
 		return start;

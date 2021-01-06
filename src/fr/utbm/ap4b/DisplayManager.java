@@ -29,7 +29,9 @@ public class DisplayManager extends Application {
 		System.out.println("init methode - Thread: " + Thread.currentThread().getName());
 		GM = new GameManager();
 		//dans cette partie on gère tout ce qui doit être fait avant d'afficher la fenêtre.
-		System.out.print("salut");
+		
+		GM.getCurrentPlayer().print();
+		
 	}
 	
 	@Override

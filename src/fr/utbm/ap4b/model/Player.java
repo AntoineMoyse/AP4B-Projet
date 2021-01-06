@@ -19,5 +19,23 @@ public class Player {
 	public Player(String playerName, String color) {
 		PlayerName = playerName;
 		Color = color;
+		CreditList = new ArrayList<CreditCard>();
+		DestinationGoalList = new ArrayList<DestinationGoalCard>();
+	}
+	
+	public void print() {
+		System.out.println("\n Player : "+ this.PlayerName + "\n Credit cards : "+ this.CreditList.toString() + "\n Destination Card : "+ this.DestinationGoalList.toString());
+		
+		
+	}
+	
+	//ajouter une carte credit au deck du joueur
+	public void addCreditCard(CreditCard card) {
+		CreditList.add(card);
+	}
+	
+	//ajouter une carte destination au deck du joueur
+	public void addDestinationCard(DestinationGoalCard card) {
+		DestinationGoalList.add(card);
 	}
 }

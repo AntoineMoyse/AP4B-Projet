@@ -6,7 +6,10 @@ public class CreditCard implements Card {
 	public CreditCard(String type) {
 		this.type=type;
 	}
-
+	
+	public CreditCard(CreditCard copy) {
+		this.type = copy.getType();
+	}
 	public String getType() {
 		return type;
 	}
