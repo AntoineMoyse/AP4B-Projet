@@ -1,22 +1,22 @@
 package fr.utbm.ap4b.model;
 
 public class DestinationGoalCard implements Card {
-	private Vertice Start;
-	private Vertice Goal;
+	private Vertice start;
+	private Vertice goal;
 	private int point;
 
-	public DestinationGoalCard(Vertice Start, Vertice Goal, int point) {
-		this.Start=Start;
-		this.Goal=Goal;
+	public DestinationGoalCard(Vertice start, Vertice goal, int point) {
+		this.start=start;
+		this.goal=goal;
 		this.point=point;
 	}
 
 	public Vertice getStart() {
-		return Start;
+		return start;
 	}
 
 	public Vertice getGoal() {
-		return Goal;
+		return goal;
 	}
 
 	public int getPoint() {
@@ -25,6 +25,6 @@ public class DestinationGoalCard implements Card {
 
 	@Override
 	public String toString() {
-		return Start.toString()+Goal.toString()+Integer.toString(point);
+		return start.toString()+goal.toString()+Integer.toString(point);
 	}
 }
