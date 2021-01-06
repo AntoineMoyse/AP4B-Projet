@@ -203,6 +203,89 @@ public class GraphUI implements Displayable {
 		Edge SO02_LR00 = new Edge(SO02, LR00, 2);
 		Edge SO02_EC10 = new Edge(SO02, EC10, 2);
 		Edge EC10_SO02 = new Edge(EC10, SO02, 2);
+		
+		Edge PSA_CMA = new Edge(PSA, CMA, 4);
+		Edge PSA_MTC = new Edge(PSA, MTC, 6);
+		Edge MTC_LO21 = new Edge(MTC, LO21, 6);
+		Edge PSB_LJ00 = new Edge(PSB, LJ00, 3);
+		Edge LJ00_LE02 = new Edge(LJ00, LE02, 2);
+		Edge LE02_LK00 = new Edge(LE02, LK00, 3);
+		Edge LK00_LG00 = new Edge(LK00, LG00, 3);
+		Edge LK00_EV00 = new Edge(LK00, EV00, 3);
+		Edge LK00_LE03 = new Edge(LK00, LE03, 5);
+		
+		Edge GE03_LR00 = new Edge(GE03, LK00, 2);
+		Edge GE03_SO02 = new Edge(GE03, SO02, 2);
+		Edge GE03_GE00 = new Edge(GE03, GE00, 3);
+		Edge GE03_PH03 = new Edge(GE03, PH03, 3);
+		Edge GE03_PH04 = new Edge(GE03, PH04, 2);
+		
+		Edge HT07_PH03 = new Edge(HT07, PH03, 1);
+		Edge HT07_EV02 = new Edge(HT07, EV02, 2);
+		Edge EV02_HT07 = new Edge(EV02, HT07, 2);
+		Edge HT07_SI02 = new Edge(HT07, SI02, 2);
+		Edge HT07_PH01 = new Edge(HT07, PH01, 2);
+		Edge HT07_GE00 = new Edge(HT07, GE00, 4);
+		Edge GE00_HT07 = new Edge(GE00, HT07, 4);
+		
+		Edge CC03_IFB = new Edge(CC03, IFB, 3);
+		Edge CC03_TNA = new Edge(CC03, TNA, 2);
+		Edge CC03_LO21 = new Edge(CC03, LO21, 6);
+		Edge CC03_IFD = new Edge(CC03, IFD, 4);
+		
+		Edge LG00_SO02 = new Edge(LG00, SO02, 4);
+		Edge LG00_LR00 = new Edge(LG00, LR00, 5);
+		Edge LE03_SO10 = new Edge(LE03, SO10, 4);
+		Edge EV00_LR00 = new Edge(EV00, LR00, 3);
+		Edge PMA_PSB = new Edge(PMA, PSB, 6);
+		Edge MTB_LO21 = new Edge(MTB, LO21, 4);
+		Edge LO21_IFD = new Edge(LO21, IFD, 3);
+		Edge IFB_MDA = new Edge(IFB, MDA, 3);
+		Edge SO10_PH04 = new Edge(SO10, PH04, 2);
+		Edge PH04_PH03 = new Edge(PH04, PH03, 2);
+		Edge PH03_EV02 = new Edge(PH03, EV02, 3);
+		
+		
+		g.insertEdge(LG00, SO02, LG00_SO02);
+		g.insertEdge(LG00, LR00, LG00_LR00);
+		g.insertEdge(LE03, SO10, LE03_SO10);
+		g.insertEdge(EV00, LR00, EV00_LR00);
+		g.insertEdge(PMA, PSB, PMA_PSB);
+		g.insertEdge(MTB, LO21, MTB_LO21);
+		g.insertEdge(LO21, IFD, LO21_IFD);
+		g.insertEdge(IFB, MDA, IFB_MDA);
+		g.insertEdge(SO10, PH04, SO10_PH04);
+		g.insertEdge(PH04, PH03, PH04_PH03);
+		g.insertEdge(PH03, EV02, PH03_EV02);
+		
+		g.insertEdge(CC03, IFB, CC03_IFB);
+		g.insertEdge(CC03, TNA, CC03_TNA);
+		g.insertEdge(CC03, LO21, CC03_LO21);
+		g.insertEdge(CC03, IFD, CC03_IFD);
+		
+		g.insertEdge(GE03, LR00, GE03_LR00);
+		g.insertEdge(GE03, SO02, GE03_SO02);
+		g.insertEdge(GE03, GE00, GE03_GE00);
+		g.insertEdge(GE03, PH03, GE03_PH03);
+		g.insertEdge(GE03, PH04, GE03_PH04);
+		
+		g.insertEdge(HT07, PH03, HT07_PH03);
+		g.insertEdge(HT07, EV02, HT07_EV02);
+		g.insertEdge(EV02, HT07, EV02_HT07);
+		g.insertEdge(HT07, SI02, HT07_SI02);
+		g.insertEdge(HT07, PH01, HT07_PH01);
+		g.insertEdge(HT07, GE00, HT07_GE00);
+		g.insertEdge(GE00, HT07, GE00_HT07);
+		
+		g.insertEdge(PSA, CMA, PSA_CMA);
+		g.insertEdge(PSA, MTC, PSA_MTC);
+		g.insertEdge(MTC, LO21, MTC_LO21);
+		g.insertEdge(PSB, LJ00, PSB_LJ00);
+		g.insertEdge(LJ00, LE02, LJ00_LE02);
+		g.insertEdge(LE02, LK00, LE02_LK00);
+		g.insertEdge(LK00, LG00, LK00_LG00);
+		g.insertEdge(LK00, EV00, LK00_EV00);
+		g.insertEdge(LK00, LE03, LK00_LE03);
 				
 		g.insertEdge(TNA, LO21, TNA_LO21);
 		g.insertEdge(LO21, DT20, LO21_DT20);
