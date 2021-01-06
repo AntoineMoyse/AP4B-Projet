@@ -7,6 +7,7 @@ public class Player {
 	private ArrayList<CreditCard> CreditList;
 	private ArrayList<DestinationGoalCard> DestinationGoalList;
 	private String Color;
+	private int nbCredit;
 	
 	public String getPlayerName() {
 		return PlayerName;
@@ -21,10 +22,12 @@ public class Player {
 		Color = color;
 		CreditList = new ArrayList<CreditCard>();
 		DestinationGoalList = new ArrayList<DestinationGoalCard>();
+		nbCredit = 45;
 	}
 	
+	//methode test juste pour afficher les info d'un player
 	public void print() {
-		System.out.println("\n Player : "+ this.PlayerName + "\n Credit cards : "+ this.CreditList.toString() + "\n Destination Card : "+ this.DestinationGoalList.toString());
+		System.out.println("\n Player : "+ this.PlayerName + "\n Credit cards : "+ this.CreditList.toString() + "\n Destination Card : "+ this.DestinationGoalList.toString() + "\nnombre de credit :" + this.nbCredit);
 		
 		
 	}

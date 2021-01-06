@@ -60,6 +60,8 @@ public class GameManager {
 		PlayerCount = Players.size();
 	}
 	
+	
+	//public start_game()
 	public void printDeck() {
 		System.out.println(deckcredit.toString());
 	}
@@ -80,6 +82,10 @@ public class GameManager {
 	
 	public int getRound() {
 		return Round;
+	}
+	
+	public ArrayList<CreditCard> getDeckCreditCard() {
+		return this.deckcredit;
 	}
 	
 	
