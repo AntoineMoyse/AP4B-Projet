@@ -41,4 +41,31 @@ public class Player {
 	public void addDestinationCard(DestinationGoalCard card) {
 		DestinationGoalList.add(card);
 	}
+	
+	//retirer une card du deck credit
+	public CreditCard pickCreditCardDeck(int index) {
+		CreditCard temp = this.CreditList.get(index);
+		this.CreditList.remove(index);
+		return temp;
+	}
+	
+	public ArrayList<Integer> isPossibleToPutCredit(String typeEdge, int nb) {
+		
+		int nbCardSameCredit = 0;
+		ArrayList<Integer> listCreditCard = new ArrayList<Integer>(); // liste des index à enlever du deck du joueur si il a assez de credit du bon type
+		ArrayList<Integer> emptyList = new ArrayList<Integer>(); // liste vide à renvoyer s'il n'en a pas assez
+		
+	    // on compte le nombre de cartes credit du type voulu (typeEdge)
+		for(int i=0; i<this.CreditList.size();i++) {
+			if(typeEdge == this.CreditList.get(i).getCreditType()) {
+				nbCardSameCredit++;
+				listCreditCard.add(i);
+			}
+					
+		}
+		if(nbCardSameCredit>=nb && this.nbCredit>=nb)
+			return listCreditCard;
+		else
+			return emptyList;
+	}	
 }

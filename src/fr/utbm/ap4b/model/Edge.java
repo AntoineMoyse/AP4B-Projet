@@ -1,10 +1,12 @@
 package fr.utbm.ap4b.model;
 
 public class Edge {
+	
 	private Vertice Source;
 	private Vertice Destination;
 	private int Length;
 	private Player Owner;
+	private String type;
 
 	public Vertice getSource() {
 		return Source;

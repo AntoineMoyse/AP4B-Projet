@@ -15,7 +15,9 @@ public class GameManager {
 	private int PlayerCount;
 	private int CurrentPlayerID;
 	private ArrayList<CreditCard> deckcredit = new ArrayList<CreditCard>();
+	private ArrayList<CreditCard> deckDeleted = new ArrayList<CreditCard>();
 	private ArrayList<DestinationGoalCard> deckdestination= new ArrayList<DestinationGoalCard>();
+	
 	
 	public void Createdeck() {
 		int i;
@@ -106,4 +108,21 @@ public class GameManager {
 		
 		return temp;
 	}
+	
+	//placer les credits
+	public boolean putCredit(String typeEdge, int nb) {
+		
+		//on verifi si le joueur actuel peut prendre un chemin
+		ArrayList<Integer> listCreditCard = this.CurrentPlayer.isPossibleToPutCredit(typeEdge, nb);
+		
+		if(listCreditCard.isEmpty()==false) {
+			for(int i=0;i<nb;i++) {
+				deckDeleted.add(this.CurrentPlayer.pickCreditCardDeck(listCreditCard.get(i)));
+			}
+			return true;
+		}
+		else
+			return false;
+	}
+	
 }

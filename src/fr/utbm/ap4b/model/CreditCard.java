@@ -8,15 +8,15 @@ public class CreditCard implements Card {
 	}
 	
 	public CreditCard(CreditCard copy) {
-		this.type = copy.getType();
+		this.type = copy.getCreditType();
 	}
-	public String getType() {
+	public String getCreditType() {
 		return type;
 	}
 
 	@Override
 	public String toString() {
-		return this.getType();
+		return this.getCreditType();
 	}
 
 }
