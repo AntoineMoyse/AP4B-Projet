@@ -1,14 +1,10 @@
 package fr.utbm.ap4b.ui;
-import java.util.ArrayList;
+
 import fr.utbm.ap4b.GameManager;
-import fr.utbm.ap4b.model.CreditCard;
-import fr.utbm.ap4b.model.DestinationGoalCard;
 import javafx.scene.Node;
 
 public class CardDraw implements Displayable{
 	private GameManager GM;
-	private ArrayList<CreditCard> deckcredit;
-	private ArrayList<DestinationGoalCard> deckdestination;
 	
 	public CardDraw(GameManager gM) {
 		super();

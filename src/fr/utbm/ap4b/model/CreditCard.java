@@ -16,7 +16,4 @@ public class CreditCard implements Card {
 		return this.getType();
 	}
 
-	public void createdeck() {
-
-	}
 }

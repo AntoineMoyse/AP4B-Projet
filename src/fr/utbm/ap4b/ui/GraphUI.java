@@ -60,7 +60,7 @@ public class GraphUI implements Displayable {
 		Vertice IFA = new Vertice("IFA");
 		Vertice PSA = new Vertice("PSA");
 		Vertice TNA = new Vertice("TNA");
-		Vertice CMA = new Vertice("CMB");
+		Vertice CMA = new Vertice("CMA");
 		
 		g.insertVertex(MTA);
 		g.insertVertex(MTB);
