@@ -21,6 +21,7 @@ public class DisplayManager extends Application {
 	public static void main(String[] args) {
 		System.out.println("Main methode - Thread: " + Thread.currentThread().getName());
 		launch(args); //lancement de l'application
+		
 	}
 	
 	@Override
@@ -28,6 +29,7 @@ public class DisplayManager extends Application {
 		System.out.println("init methode - Thread: " + Thread.currentThread().getName());
 		GM = new GameManager();
 		//dans cette partie on gère tout ce qui doit être fait avant d'afficher la fenêtre.
+		System.out.print("salut");
 	}
 	
 	@Override

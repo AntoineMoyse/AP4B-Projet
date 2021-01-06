@@ -11,6 +11,8 @@ public class GameManager {
 	private int PlayerCount;
 	private int CurrentPlayerID;
 	
+	
+	
 	public GameManager() {
 		Round = 1;
 		Player p1 = new Player("Joueur1", "yellowgreen");
@@ -22,6 +24,7 @@ public class GameManager {
 		Players.add(p2);
 		
 		PlayerCount = Players.size();
+		
 	}
 	
 	public Player getCurrentPlayer() {
@@ -41,4 +44,11 @@ public class GameManager {
 	public int getRound() {
 		return Round;
 	}
+	
+	public void pickCreditCard(Player player, int index) { //index : les cartes credit retournés sont numéroté de 1 à 5, piocher dans le deck caché est l'index 6
+		
+		
+	}
+	
+	
 }
