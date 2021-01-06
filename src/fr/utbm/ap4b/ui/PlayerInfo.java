@@ -3,18 +3,17 @@ package fr.utbm.ap4b.ui;
 import fr.utbm.ap4b.GameManager;
 import javafx.scene.Node;
 
-public class CardDraw implements Displayable{
+public class PlayerInfo implements Displayable {
 	private GameManager GM;
 	
-	public CardDraw(GameManager gM) {
-		super();
-		GM = gM;
+	public PlayerInfo(GameManager GM) {
+		this.GM = GM;
 	}
 
 	@Override
 	public void start() {
 		// TODO Auto-generated method stub
-		
+			
 	}
 
 	@Override
@@ -28,4 +27,5 @@ public class CardDraw implements Displayable{
 		// TODO Auto-generated method stub
 		
 	}
+
 }

@@ -11,82 +11,118 @@
 		</attributes>
 	</classpathentry>
 <<<<<<< HEAD
+<<<<<<< HEAD
 	<classpathentry kind="lib" path="D:/java/AP4B-Projet/lib/openjfx-11.0.2_windows-x64_bin-sdk/javafx-sdk-11.0.2/lib/javafx.base.jar">
 =======
 	<classpathentry kind="lib" path="C:/Users/antoi/Dropbox/Mon PC (LAPTOP-PD5UB4A9)/Desktop/depot local/AP4B-Projet/lib/JavaFXSmartGraph-0.9.2.jar">
 >>>>>>> renault
+=======
+	<classpathentry kind="lib" path="C:/Users/antoi/Dropbox/Mon PC (LAPTOP-PD5UB4A9)/Desktop/depot local/Nouveau dossier/lib/JavaFXSmartGraph-0.9.2.jar">
+>>>>>>> MOYSE
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
+<<<<<<< HEAD
 <<<<<<< HEAD
 	<classpathentry kind="lib" path="D:/java/AP4B-Projet/lib/openjfx-11.0.2_windows-x64_bin-sdk/javafx-sdk-11.0.2/lib/javafx.controls.jar">
 =======
 	<classpathentry kind="lib" path="C:/Users/antoi/Dropbox/Mon PC (LAPTOP-PD5UB4A9)/Desktop/depot local/AP4B-Projet/lib/openjfx-11.0.2_windows-x64_bin-sdk/javafx-sdk-11.0.2/lib/javafx.base.jar">
 >>>>>>> renault
+=======
+	<classpathentry kind="lib" path="C:/Users/antoi/Dropbox/Mon PC (LAPTOP-PD5UB4A9)/Desktop/depot local/Nouveau dossier/lib/openjfx-11.0.2_windows-x64_bin-sdk/javafx-sdk-11.0.2/lib/javafx.base.jar">
+>>>>>>> MOYSE
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
+<<<<<<< HEAD
 <<<<<<< HEAD
 	<classpathentry kind="lib" path="D:/java/AP4B-Projet/lib/openjfx-11.0.2_windows-x64_bin-sdk/javafx-sdk-11.0.2/lib/javafx.fxml.jar">
 =======
 	<classpathentry kind="lib" path="C:/Users/antoi/Dropbox/Mon PC (LAPTOP-PD5UB4A9)/Desktop/depot local/AP4B-Projet/lib/openjfx-11.0.2_windows-x64_bin-sdk/javafx-sdk-11.0.2/lib/javafx.controls.jar">
 >>>>>>> renault
+=======
+	<classpathentry kind="lib" path="C:/Users/antoi/Dropbox/Mon PC (LAPTOP-PD5UB4A9)/Desktop/depot local/Nouveau dossier/lib/openjfx-11.0.2_windows-x64_bin-sdk/javafx-sdk-11.0.2/lib/javafx.controls.jar">
+>>>>>>> MOYSE
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
+<<<<<<< HEAD
 <<<<<<< HEAD
 	<classpathentry kind="lib" path="D:/java/AP4B-Projet/lib/openjfx-11.0.2_windows-x64_bin-sdk/javafx-sdk-11.0.2/lib/javafx.graphics.jar">
 =======
 	<classpathentry kind="lib" path="C:/Users/antoi/Dropbox/Mon PC (LAPTOP-PD5UB4A9)/Desktop/depot local/AP4B-Projet/lib/openjfx-11.0.2_windows-x64_bin-sdk/javafx-sdk-11.0.2/lib/javafx.fxml.jar">
 >>>>>>> renault
+=======
+	<classpathentry kind="lib" path="C:/Users/antoi/Dropbox/Mon PC (LAPTOP-PD5UB4A9)/Desktop/depot local/Nouveau dossier/lib/openjfx-11.0.2_windows-x64_bin-sdk/javafx-sdk-11.0.2/lib/javafx.fxml.jar">
+>>>>>>> MOYSE
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
+<<<<<<< HEAD
 <<<<<<< HEAD
 	<classpathentry kind="lib" path="D:/java/AP4B-Projet/lib/openjfx-11.0.2_windows-x64_bin-sdk/javafx-sdk-11.0.2/lib/javafx.media.jar">
 =======
 	<classpathentry kind="lib" path="C:/Users/antoi/Dropbox/Mon PC (LAPTOP-PD5UB4A9)/Desktop/depot local/AP4B-Projet/lib/openjfx-11.0.2_windows-x64_bin-sdk/javafx-sdk-11.0.2/lib/javafx.graphics.jar">
 >>>>>>> renault
+=======
+	<classpathentry kind="lib" path="C:/Users/antoi/Dropbox/Mon PC (LAPTOP-PD5UB4A9)/Desktop/depot local/Nouveau dossier/lib/openjfx-11.0.2_windows-x64_bin-sdk/javafx-sdk-11.0.2/lib/javafx.graphics.jar">
+>>>>>>> MOYSE
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
+<<<<<<< HEAD
 <<<<<<< HEAD
 	<classpathentry kind="lib" path="D:/java/AP4B-Projet/lib/openjfx-11.0.2_windows-x64_bin-sdk/javafx-sdk-11.0.2/lib/javafx.swing.jar">
 =======
 	<classpathentry kind="lib" path="C:/Users/antoi/Dropbox/Mon PC (LAPTOP-PD5UB4A9)/Desktop/depot local/AP4B-Projet/lib/openjfx-11.0.2_windows-x64_bin-sdk/javafx-sdk-11.0.2/lib/javafx.media.jar">
 >>>>>>> renault
+=======
+	<classpathentry kind="lib" path="C:/Users/antoi/Dropbox/Mon PC (LAPTOP-PD5UB4A9)/Desktop/depot local/Nouveau dossier/lib/openjfx-11.0.2_windows-x64_bin-sdk/javafx-sdk-11.0.2/lib/javafx.media.jar">
+>>>>>>> MOYSE
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
+<<<<<<< HEAD
 <<<<<<< HEAD
 	<classpathentry kind="lib" path="D:/java/AP4B-Projet/lib/openjfx-11.0.2_windows-x64_bin-sdk/javafx-sdk-11.0.2/lib/javafx.web.jar">
 =======
 	<classpathentry kind="lib" path="C:/Users/antoi/Dropbox/Mon PC (LAPTOP-PD5UB4A9)/Desktop/depot local/AP4B-Projet/lib/openjfx-11.0.2_windows-x64_bin-sdk/javafx-sdk-11.0.2/lib/javafx.swing.jar">
 >>>>>>> renault
+=======
+	<classpathentry kind="lib" path="C:/Users/antoi/Dropbox/Mon PC (LAPTOP-PD5UB4A9)/Desktop/depot local/Nouveau dossier/lib/openjfx-11.0.2_windows-x64_bin-sdk/javafx-sdk-11.0.2/lib/javafx.swing.jar">
+>>>>>>> MOYSE
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
+<<<<<<< HEAD
 <<<<<<< HEAD
 	<classpathentry kind="lib" path="D:/java/AP4B-Projet/lib/openjfx-11.0.2_windows-x64_bin-sdk/javafx-sdk-11.0.2/lib/javafx-swt.jar">
 =======
 	<classpathentry kind="lib" path="C:/Users/antoi/Dropbox/Mon PC (LAPTOP-PD5UB4A9)/Desktop/depot local/AP4B-Projet/lib/openjfx-11.0.2_windows-x64_bin-sdk/javafx-sdk-11.0.2/lib/javafx.web.jar">
 >>>>>>> renault
+=======
+	<classpathentry kind="lib" path="C:/Users/antoi/Dropbox/Mon PC (LAPTOP-PD5UB4A9)/Desktop/depot local/Nouveau dossier/lib/openjfx-11.0.2_windows-x64_bin-sdk/javafx-sdk-11.0.2/lib/javafx.web.jar">
+>>>>>>> MOYSE
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
 <<<<<<< HEAD
+<<<<<<< HEAD
 	<classpathentry kind="lib" path="D:/java/AP4B-Projet/lib/JavaFXSmartGraph-0.9.2.jar">
 =======
 	<classpathentry kind="lib" path="C:/Users/antoi/Dropbox/Mon PC (LAPTOP-PD5UB4A9)/Desktop/depot local/AP4B-Projet/lib/openjfx-11.0.2_windows-x64_bin-sdk/javafx-sdk-11.0.2/lib/javafx-swt.jar">
 >>>>>>> renault
+=======
+	<classpathentry kind="lib" path="C:/Users/antoi/Dropbox/Mon PC (LAPTOP-PD5UB4A9)/Desktop/depot local/Nouveau dossier/lib/openjfx-11.0.2_windows-x64_bin-sdk/javafx-sdk-11.0.2/lib/javafx-swt.jar">
+>>>>>>> MOYSE
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>

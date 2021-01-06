@@ -4,6 +4,7 @@ public class Edge {
 	private Vertice Source;
 	private Vertice Destination;
 	private int Length;
+	private Player Owner;
 
 	public Vertice getSource() {
 		return Source;
@@ -23,8 +24,22 @@ public class Edge {
 		this.Length = Cost;
 	}
 
+	public Player getOwner() {
+		return Owner;
+	}
+
+	public void setOwner(Player owner) {
+		Owner = owner;
+	}
+
 	@Override
 	public String toString() {
-		return Integer.toString(Length);
+		if (Owner == null) {
+			return Integer.toString(Length);
+		} else {
+			return Owner.getPlayerName();
+		}
+			
+		
 	}
 }
