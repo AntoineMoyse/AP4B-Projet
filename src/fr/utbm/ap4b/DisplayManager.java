@@ -1,15 +1,22 @@
 package fr.utbm.ap4b;
 
+import fr.utbm.ap4b.ui.CardDraw;
+import fr.utbm.ap4b.ui.GameInfo;
 import fr.utbm.ap4b.ui.GraphUI;
+import fr.utbm.ap4b.ui.PlayerInfo;
 import fr.utbm.ap4b.utils.Resources;
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class DisplayManager extends Application {
 	public static Stage mainStage; //fenêtre principale
+	private GameManager GM;
 	
 	public static void main(String[] args) {
 		System.out.println("Main methode - Thread: " + Thread.currentThread().getName());
@@ -19,6 +26,7 @@ public class DisplayManager extends Application {
 	@Override
 	public void init() throws Exception {
 		System.out.println("init methode - Thread: " + Thread.currentThread().getName());
+		GM = new GameManager();
 		//dans cette partie on gère tout ce qui doit être fait avant d'afficher la fenêtre.
 	}
 	
@@ -35,9 +43,15 @@ public class DisplayManager extends Application {
 		mainStage.setMinWidth(500);
 		
 		//create the graph
-		GraphUI graphUI = new GraphUI();
-		StackPane root = new StackPane();
-		root.getChildren().add(graphUI.getNode());
+		GraphUI graphUI = new GraphUI(GM);
+		CardDraw CD = new CardDraw(GM);
+		PlayerInfo PI = new PlayerInfo(GM);
+		GameInfo GI = new GameInfo(GM);
+		BorderPane root = new BorderPane();
+		root.setCenter(graphUI.getNode());
+		root.setBottom(PI.getNode());
+		root.setRight(CD.getNode());
+		root.setTop(GI.getNode());
 		Scene scene = new Scene(root, 1000, 600);
 		
 		mainStage.setScene(scene);
