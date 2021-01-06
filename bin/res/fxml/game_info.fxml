@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<HBox xmlns="http://javafx.com/javafx/11.0.1" 
+xmlns:fx="http://javafx.com/fxml/1" 
+fx:controller="fr.utbm.ap4b.controller.GameInfoController">
+   <children>
+      <VBox prefWidth="300.0">
+         <children>
+            <Label text="#round#" id="round" fx:id="round" />
+            <Label text="#nextplayer#" id="nextplayer" fx:id="nextplayer"/>
+            <Label text="#elapsedtime#" id="elapsedtime" fx:id="elapsedtime"/>
+         </children>
+      </VBox>
+      <Label text="#title#" id="title" fx:id="title"/>
+   </children>
+</HBox>

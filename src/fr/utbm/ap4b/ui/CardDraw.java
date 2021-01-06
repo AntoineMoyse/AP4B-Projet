@@ -1,31 +1,48 @@
 package fr.utbm.ap4b.ui;
 
-import fr.utbm.ap4b.GameManager;
-import javafx.scene.Node;
+import java.io.IOException;
+import java.util.ResourceBundle;
 
-public class CardDraw implements Displayable{
+import fr.utbm.ap4b.GameManager;
+import fr.utbm.ap4b.controller.CardDrawController;
+import fr.utbm.ap4b.utils.Resources;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+
+public class CardDraw implements Displayable {
 	private GameManager GM;
+	private Parent root;
+	private CardDrawController controller;
 	
 	public CardDraw(GameManager gM) {
-		super();
 		GM = gM;
+		
+		ResourceBundle bundle = ResourceBundle.getBundle(Resources.BUNDLEPATH);
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/res/fxml/CardDraw.fxml"), bundle);
+		
+		try {
+			root = fxmlLoader.load();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		controller = fxmlLoader.<CardDrawController>getController();
+		controller.setGameManager(GM);
 	}
 
 	@Override
 	public void start() {
-		// TODO Auto-generated method stub
-		
+		update();
 	}
 
 	@Override
 	public Node getNode() {
-		// TODO Auto-generated method stub
-		return null;
+		return root;
 	}
 
 	@Override
 	public void update() {
-		// TODO Auto-generated method stub
-		
+		controller.actualize();
 	}
 }

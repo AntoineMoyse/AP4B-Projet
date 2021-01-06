@@ -4,7 +4,7 @@ import com.brunomnsilva.smartgraph.graph.DigraphEdgeList;
 import com.brunomnsilva.smartgraph.graph.Graph;
 import com.brunomnsilva.smartgraph.graphview.SmartPlacementStrategy;
 import com.brunomnsilva.smartgraph.graphview.SmartGraphPanel;
-import com.brunomnsilva.smartgraph.graphview.SmartRandomPlacementStrategy;
+import com.brunomnsilva.smartgraph.graphview.SmartCircularSortedPlacementStrategy;
 
 import fr.utbm.ap4b.GameManager;
 import fr.utbm.ap4b.model.Edge;
@@ -20,7 +20,7 @@ public class GraphUI implements Displayable {
 		this.GM = GM;
 		g = new DigraphEdgeList<Vertice, Edge>();
 		loadGraph(g);
-		SmartPlacementStrategy strategy = new SmartRandomPlacementStrategy();
+		SmartPlacementStrategy strategy = new SmartCircularSortedPlacementStrategy();
 		graphView = new SmartGraphPanel<>(g, strategy);
 		graphView.setAutomaticLayout(true);
 	}

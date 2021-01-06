@@ -1,41 +1,48 @@
 package fr.utbm.ap4b.ui;
 
-import fr.utbm.ap4b.GameManager;
-import javafx.scene.Node;
-import javafx.scene.control.Label;
-import javafx.scene.layout.HBox;
+import java.io.IOException;
+import java.util.ResourceBundle;
 
-public class GameInfo implements Displayable{
+import fr.utbm.ap4b.GameManager;
+import fr.utbm.ap4b.controller.GameInfoController;
+import fr.utbm.ap4b.utils.Resources;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+
+public class GameInfo implements Displayable {
+	private Parent root;
+	private GameInfoController controller;
 	private GameManager GM;
-	private Label Round;
-	private HBox Root;
 	
 	public GameInfo(GameManager gM) {
-		super();
 		GM = gM;
-		Round = new Label("1er tours");
 		
-		Root = new HBox();
-		Root.getChildren().add(Round);
+		ResourceBundle bundle = ResourceBundle.getBundle(Resources.BUNDLEPATH);
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/res/fxml/game_info.fxml"), bundle);
+		
+		try {
+			root = fxmlLoader.load();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		controller = fxmlLoader.<GameInfoController>getController();
+		controller.setGameManager(GM);
 	}
 
 	@Override
 	public void start() {
-		// TODO Auto-generated method stub
-		
+		update();
 	}
 
 	@Override
 	public Node getNode() {
-		// TODO Auto-generated method stub
-		return Root;
+		return root;
 	}
-
+	
 	@Override
 	public void update() {
-		// TODO Auto-generated method stub
-		Round.setText(GM.getRound() + "ème tours");
-		
+		controller.actualize();
 	}
-
 }

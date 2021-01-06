@@ -4,7 +4,7 @@ import java.util.ResourceBundle;
 
 public class Resources {
     public static final String BUNDLEPATH = "res.lang.strings_EN";
-	static final ResourceBundle RESSOURCEBUNDLE = ResourceBundle.getBundle(BUNDLEPATH);
+	public static final ResourceBundle RESSOURCEBUNDLE = ResourceBundle.getBundle(BUNDLEPATH);
 	
 	public static String getStringRessources(String key) {
 		try {
