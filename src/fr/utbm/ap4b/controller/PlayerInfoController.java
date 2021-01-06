@@ -33,6 +33,5 @@ public class PlayerInfoController implements Initializable {
 		player_img.setImage(Avatar);
 		playername_lbl.setText(GM.getCurrentPlayer().getPlayerName());
 		System.out.println("PlayerInfoFilled");
-		
 	}
 }

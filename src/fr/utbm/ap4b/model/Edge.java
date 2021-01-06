@@ -19,11 +19,16 @@ public class Edge {
 	public int getLength() {
 		return Length;
 	}
+	
+	public String getType() {
+		return type;
+	}
 
-	public Edge(Vertice Source, Vertice Destination, int Cost) {
+	public Edge(Vertice Source, Vertice Destination, int Cost, String type) {
 		this.Source = Source;
 		this.Destination = Destination;
 		this.Length = Cost;
+		this.type = type;
 	}
 
 	public Player getOwner() {
@@ -37,7 +42,7 @@ public class Edge {
 	@Override
 	public String toString() {
 		if (Owner == null) {
-			return Integer.toString(Length);
+			return Integer.toString(Length)+type;
 		} else {
 			return Owner.getPlayerName();
 		}

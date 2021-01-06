@@ -8,6 +8,8 @@ public class Player {
 	private ArrayList<DestinationGoalCard> DestinationGoalList;
 	private String Color;
 	private int nbCredit;
+	private int point;
+	private int[] tableaupoint = {1,2,4,7,10,15};
 	
 	public String getPlayerName() {
 		return PlayerName;
@@ -23,13 +25,17 @@ public class Player {
 		CreditList = new ArrayList<CreditCard>();
 		DestinationGoalList = new ArrayList<DestinationGoalCard>();
 		nbCredit = 45;
+		point=0;
 	}
 	
 	//methode test juste pour afficher les info d'un player
 	public void print() {
-		System.out.println("\n Player : "+ this.PlayerName + "\n Credit cards : "+ this.CreditList.toString() + "\n Destination Card : "+ this.DestinationGoalList.toString() + "\nnombre de credit :" + this.nbCredit);
-		
-		
+		System.out.println("\n Player : "+ this.PlayerName + "\n Credit cards : "+ this.CreditList.toString() + "\n Destination Card : "+ this.DestinationGoalList.toString() + "\nnombre de credit :" + this.nbCredit + "\nNombre de point :" + this.point);
+	}
+	
+	public void Ajoutpoint(int nb) {
+		point = point + tableaupoint[nb-1];
+		System.out.println(point);
 	}
 	
 	//ajouter une carte credit au deck du joueur
