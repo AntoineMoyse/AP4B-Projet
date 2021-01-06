@@ -142,9 +142,13 @@ public class GraphUI implements Displayable {
 		Edge MTB_TNA = new Edge(MTB, TNA, 6);
 		Edge TNA_IFB = new Edge(TNA, IFB, 5);
 		Edge IFB_IFA = new Edge(IFB, IFA, 2);
+		Edge IFA_IFB = new Edge(IFA, IFB, 2);
 		Edge IFA_MDA = new Edge(IFA, MDA, 2);
+		Edge MDA_IFA = new Edge(MDA, IFA, 2);
 		Edge MDA_MDB = new Edge(MDA, MDB, 2);
+		Edge MDB_MDA = new Edge(MDB, MDA, 2);
 		Edge MDB_EV02 = new Edge(MDB, EV02, 2);
+		Edge EV02_MDB = new Edge(EV02, MDB, 2);
 		Edge EV02_SI02 = new Edge(EV02, SI02, 2);
 		Edge SI02_PH01 = new Edge(SI02, PH01, 4);
 		Edge PH01_GE00 = new Edge(PH01, GE00, 6);
@@ -152,9 +156,13 @@ public class GraphUI implements Displayable {
 		Edge EC10_LG00 = new Edge(EC10, LG00, 6);
 		Edge LG00_LE02 = new Edge(LG00, LE02, 6);
 		Edge LE02_LS00 = new Edge(LE02, LS00, 3);
+		Edge LS00_LE02 = new Edge(LS00, LE02, 3);
 		Edge LS00_PMA = new Edge(LS00, PMA, 5);
+		Edge PMA_LS00 = new Edge(PMA, LS00, 5);
 		Edge PMA_PSA = new Edge(PMA, PSA, 1);	
+		Edge PSA_PMA = new Edge(PSA, PMA, 1);
 		Edge PSA_MTA = new Edge(PSA, MTA, 1);
+		Edge MTA_PSA = new Edge(MTA, PSA, 1);
 		
 		Edge IFD_PH04 = new Edge(IFD, PH04, 2);
 		Edge PH04_SO10 = new Edge(PH04, SO10, 2);
@@ -178,6 +186,42 @@ public class GraphUI implements Displayable {
 		Edge ID00_EV02 = new Edge(ID00, EV02, 2);
 		Edge ID00_PH03 = new Edge(ID00, PH03, 4);
 		
+		Edge IFD_DT20 = new Edge(IFD, DT20, 4);
+		Edge DT20_MTC = new Edge(DT20, MTC, 5);
+		Edge DT20_LE03 = new Edge(DT20, LE03, 4);
+		Edge LE03_PSB = new Edge(LE03, PSB, 3);
+		Edge PSB_LE03 = new Edge(PSB, LE03, 3);
+		
+		Edge TNA_LO21 = new Edge(TNA, LO21, 3);
+		Edge LO21_DT20 = new Edge(LO21, DT20, 3);
+		Edge DT20_LO21 = new Edge(DT20, LO21, 3);
+		Edge DT20_SO10 = new Edge(DT20, SO10, 1);
+		Edge SO10_DT20 = new Edge(SO10, DT20, 1);
+		Edge SO10_LR00 = new Edge(SO10, LR00, 2);
+		Edge LR00_SO10 = new Edge(LR00, SO10, 2);
+		Edge LR00_SO02 = new Edge(LR00, SO02, 2);
+		Edge SO02_LR00 = new Edge(SO02, LR00, 2);
+		Edge SO02_EC10 = new Edge(SO02, EC10, 2);
+		Edge EC10_SO02 = new Edge(EC10, SO02, 2);
+				
+		g.insertEdge(TNA, LO21, TNA_LO21);
+		g.insertEdge(LO21, DT20, LO21_DT20);
+		g.insertEdge(DT20, LO21, DT20_LO21);
+		g.insertEdge(DT20, SO10, DT20_SO10);
+		g.insertEdge(SO10, DT20, SO10_DT20);
+		g.insertEdge(SO10, LR00, SO10_LR00);
+		g.insertEdge(LR00, SO10, LR00_SO10);
+		g.insertEdge(LR00, SO02, LR00_SO02);
+		g.insertEdge(SO02, LR00, SO02_LR00);
+		g.insertEdge(SO02, EC10, SO02_EC10);
+		g.insertEdge(EC10, SO02, EC10_SO02);
+		
+		g.insertEdge(IFD, DT20, IFD_DT20);
+		g.insertEdge(DT20, MTC, DT20_MTC);
+		g.insertEdge(DT20, LE03, DT20_LE03);
+		g.insertEdge(LE03, PSB, LE03_PSB);
+		g.insertEdge(PSB, LE03, PSB_LE03);
+		
 		g.insertEdge(IFD, PH04, IFD_PH04);
 		g.insertEdge(PH04, SO10, PH04_SO10);
 		g.insertEdge(SO10, LE03, SO10_LE03);
@@ -195,9 +239,13 @@ public class GraphUI implements Displayable {
 		g.insertEdge(MTB, TNA, MTB_TNA);
 		g.insertEdge(TNA, IFB, TNA_IFB);
 		g.insertEdge(IFB, IFA, IFB_IFA);
+		g.insertEdge(IFA, IFB, IFA_IFB);
 		g.insertEdge(IFA, MDA, IFA_MDA);
+		g.insertEdge(MDA, IFA, MDA_IFA);
 		g.insertEdge(MDA, MDB, MDA_MDB);
+		g.insertEdge(MDB, MDA, MDB_MDA);
 		g.insertEdge(MDB, EV02, MDB_EV02);
+		g.insertEdge(EV02, MDB, EV02_MDB);
 		g.insertEdge(EV02, SI02, EV02_SI02);
 		g.insertEdge(SI02, PH01, SI02_PH01);
 		g.insertEdge(PH01, GE00, PH01_GE00);
@@ -205,9 +253,13 @@ public class GraphUI implements Displayable {
 		g.insertEdge(EC10, LG00, EC10_LG00);
 		g.insertEdge(LG00, LE02, LG00_LE02);
 		g.insertEdge(LE02, LS00, LE02_LS00);
+		g.insertEdge(LS00, LE02, LS00_LE02);
 		g.insertEdge(LS00, PMA, LS00_PMA);
+		g.insertEdge(PMA, LS00, PMA_LS00);
 		g.insertEdge(PMA, PSA, PMA_PSA);
+		g.insertEdge(PSA, PMA, PSA_PMA);
 		g.insertEdge(PSA, MTA, PSA_MTA);
+		g.insertEdge(MTA, PSA, MTA_PSA);
 		
 		g.insertEdge(ID00, PH04, ID00_PH04);
 		g.insertEdge(ID00, IFD, ID00_IFD);
