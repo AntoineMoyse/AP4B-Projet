@@ -1,7 +1,11 @@
 package fr.utbm.ap4b;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 
+import fr.utbm.ap4b.model.CreditCard;
+import fr.utbm.ap4b.model.DestinationGoalCard;
 import fr.utbm.ap4b.model.Player;
 
 public class GameManager {
@@ -10,8 +14,33 @@ public class GameManager {
 	private Player CurrentPlayer;
 	private int PlayerCount;
 	private int CurrentPlayerID;
+	private ArrayList<CreditCard> deckcredit = new ArrayList<CreditCard>();
+	private ArrayList<DestinationGoalCard> deckdestination= new ArrayList<DestinationGoalCard>();
 	
-	
+	public void Createdeck() {
+		int i;
+		for(i=0;i<14;i++)
+		{
+			CreditCard CS = new CreditCard("CS");
+			deckcredit.add(CS);
+			CreditCard TM = new CreditCard("TM");
+			deckcredit.add(TM);
+			CreditCard OM = new CreditCard("OM");
+			deckcredit.add(OM);
+			CreditCard EC = new CreditCard("EC");
+			deckcredit.add(EC);
+			CreditCard QC = new CreditCard("QC");
+			deckcredit.add(QC);
+			CreditCard ST = new CreditCard("ST");
+			deckcredit.add(ST);
+			CreditCard NS = new CreditCard("NS");
+			deckcredit.add(NS);
+		}
+		for(i=0;i<14;i++) {
+			CreditCard Bonus = new CreditCard("Bonus");
+			deckcredit.add(Bonus);
+		}
+	}
 	
 	public GameManager() {
 		Round = 1;
@@ -23,8 +52,12 @@ public class GameManager {
 		Players.add(p1);
 		Players.add(p2);
 		
-		PlayerCount = Players.size();
+		Createdeck();
+		System.out.println(deckcredit.toString());
+		Collections.shuffle(deckcredit);
+		System.out.println(deckcredit.toString());
 		
+		PlayerCount = Players.size();
 	}
 	
 	public Player getCurrentPlayer() {
@@ -44,11 +77,4 @@ public class GameManager {
 	public int getRound() {
 		return Round;
 	}
-	
-	public void pickCreditCard(Player player, int index) { //index : les cartes credit retournés sont numéroté de 1 à 5, piocher dans le deck caché est l'index 6
-		
-		
-	}
-	
-	
 }
