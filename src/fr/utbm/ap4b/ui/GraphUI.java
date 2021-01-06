@@ -6,15 +6,18 @@ import com.brunomnsilva.smartgraph.graphview.SmartPlacementStrategy;
 import com.brunomnsilva.smartgraph.graphview.SmartGraphPanel;
 import com.brunomnsilva.smartgraph.graphview.SmartRandomPlacementStrategy;
 
+import fr.utbm.ap4b.GameManager;
 import fr.utbm.ap4b.model.Edge;
 import fr.utbm.ap4b.model.Vertice;
 import javafx.scene.Node;
 
 public class GraphUI implements Displayable {
-	Graph<Vertice, Edge> g;
-	SmartGraphPanel<Vertice, Edge> graphView;
+	private Graph<Vertice, Edge> g;
+	private SmartGraphPanel<Vertice, Edge> graphView;
+	private GameManager GM;
 
-	public GraphUI() {
+	public GraphUI(GameManager GM) {
+		this.GM = GM;
 		g = new DigraphEdgeList<Vertice, Edge>();
 		loadGraph(g);
 		SmartPlacementStrategy strategy = new SmartRandomPlacementStrategy();
@@ -26,11 +29,16 @@ public class GraphUI implements Displayable {
 	public void start() {
 		graphView.setVertexDoubleClickAction(graphVertex -> {
 		    System.out.println("Vertex contains element: " + graphVertex.getUnderlyingVertex().element());
-		    graphView.getStylableVertex(graphVertex.getUnderlyingVertex().element()).setStyleClass("myVertex");
+		    //graphView.getStylableVertex(graphVertex.getUnderlyingVertex().element()).setStyleClass("myVertex");
+		    //graphVertex.setStyle("-fx-stroke: black;");
 		});
 	
 		graphView.setEdgeDoubleClickAction(graphEdge -> {
 		    System.out.println("Length : " + graphEdge.getUnderlyingEdge().element().getLength());
+		    //graphView.getStylableEdge(graphEdge.getUnderlyingEdge().element()).setStyleClass("myEdge");
+		    graphEdge.setStyle("-fx-stroke: " + GM.getCurrentPlayer().getColor() + ";");
+		    graphEdge.getUnderlyingEdge().element().setOwner(GM.getCurrentPlayer());
+		    update();
 		});
 		graphView.init();
 	}
@@ -52,7 +60,8 @@ public class GraphUI implements Displayable {
 		Vertice IFA = new Vertice("IFA");
 		Vertice PSA = new Vertice("PSA");
 		Vertice TNA = new Vertice("TNA");
-		Vertice CMA = new Vertice("CMA");
+		Vertice CMA = new Vertice("CMB");
+		
 		g.insertVertex(MTA);
 		g.insertVertex(MTB);
 		g.insertVertex(MTC);
@@ -67,7 +76,7 @@ public class GraphUI implements Displayable {
 		Edge PSA_MTA = new Edge(PSA, MTA, 5);
 		Edge TNA_MTA = new Edge(TNA, MTA, 7);
 		Edge CMA_TNA = new Edge(CMA, TNA, 3);
-		
+		Edge MTC_TNA = new Edge(MTC, TNA, 10);
 
 		g.insertEdge(MTA, MTB, MTA_MTB);
 		g.insertEdge(MTB, MTC, MTB_MTC);
@@ -75,6 +84,7 @@ public class GraphUI implements Displayable {
 		g.insertEdge(PSA, MTA, PSA_MTA);
 		g.insertEdge(TNA, MTA, TNA_MTA);
 		g.insertEdge(CMA, TNA, CMA_TNA);
+		g.insertEdge(MTC, TNA, MTC_TNA);
 
 	}
 }
