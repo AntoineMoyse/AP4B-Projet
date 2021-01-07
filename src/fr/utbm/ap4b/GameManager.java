@@ -96,7 +96,32 @@ public class GameManager {
 		return CurrentPlayer;
 	}
 	
+	public void setWinner() {
+		int i, max, gagnant;
+		max=0;
+		gagnant=0;
+		int array[] = new int[Players.size()];
+		for(i=0;i<Players.size();i++) {
+			array[i]=Players.get(i).getpoint();
+		}
+		for(i = 0; i < array.length	; i++){
+			if(array[i] > max) {
+				max = array[i];
+				gagnant=i;
+			}
+		}
+		System.out.println("Le gagnant est :" + Players.get(gagnant) + " avec : " + max + " points");
+	}
+	
+	public void Checkendgame() {
+		if(CurrentPlayer.getnbCredit()<2) {
+			System.out.println("La partie est terminer !");
+			setWinner();
+		}
+	}
+	
 	public Player nextPlayer() {
+		Checkendgame();
 		CurrentPlayerID ++;
 		if (CurrentPlayerID >= PlayerCount) {
 			CurrentPlayerID = 0;
@@ -112,42 +137,6 @@ public class GameManager {
 	
 	public CardDraw<CreditCard> getDeckCreditCard() {
 		return this.deckCredit;
-	}
-	
-	
-	//pick une carte crédit
-	public CreditCard pickCreditCard(int index) {
-		
-		CreditCard temp = new CreditCard(this.deckCredit.get(index));	//on recup la carte dans une variable temporaire
-		this.deckCredit.remove(index);	// on supprime la carte du deck
-		
-		return temp;	
-	}
-	
-	//pick une carte destination
-	public DestinationGoalCard pickDestinationGoalCard(int index) {
-		
-		DestinationGoalCard temp = new DestinationGoalCard(this.deckDestination.get(index));//on recup la carte dans une variable temporaire
-		this.deckDestination.remove(index);// on supprime la carte du deck
-		
-		return temp;
-	}
-	
-	//placer les credits
-	
-	public boolean putCredit(String typeEdge, int nb) {
-		
-		//on verifi si le joueur actuel peut prendre un chemin
-		ArrayList<Integer> listCreditCard = this.CurrentPlayer.isPossibleToPutCredit(typeEdge, nb);
-		
-		if(listCreditCard.isEmpty()==false) {
-			for(int i=0;i<nb;i++) {
-				deckCreditDeleted.add(this.CurrentPlayer.pickCreditCardDeck(listCreditCard.get(i)));
-			}
-			return true;
-		}
-		else
-			return false;
 	}
 	
 	public void loadGraph(Graph<Vertice, Edge> g) {
@@ -245,33 +234,33 @@ public class GameManager {
 		Edge MDA_MDB = new Edge(MDA, MDB, 2, Credit.TM);
 		Edge MDB_MDA = new Edge(MDB, MDA, 2, Credit.TM);
 		Edge MDB_EV02 = new Edge(MDB, EV02, 2, Credit.ST);
-		Edge EV02_MDB = new Edge(EV02, MDB, 2, Credit.ST);
+		Edge EV02_MDB = new Edge(EV02, MDB, 2, Credit.NB);
 		Edge EV02_SI02 = new Edge(EV02, SI02, 2, Credit.QC);
 		Edge SI02_PH01 = new Edge(SI02, PH01, 4, Credit.QC);
 		Edge PH01_GE00 = new Edge(PH01, GE00, 6, Credit.ST);
 		Edge GE00_EC10 = new Edge(GE00, EC10, 2, Credit.OM);
-		Edge EC10_LG00 = new Edge(EC10, LG00, 6, Credit.ST);
+		Edge EC10_LG00 = new Edge(EC10, LG00, 6, Credit.NB);
 		Edge LG00_LE02 = new Edge(LG00, LE02, 6, Credit.EC);
 		Edge LE02_LS00 = new Edge(LE02, LS00, 3, Credit.EC);
 		Edge LS00_LE02 = new Edge(LS00, LE02, 3, Credit.EC);
 		Edge LS00_PMA = new Edge(LS00, PMA, 5, Credit.ST);
-		Edge PMA_LS00 = new Edge(PMA, LS00, 5, Credit.ST);
+		Edge PMA_LS00 = new Edge(PMA, LS00, 5, Credit.NB);
 		Edge PMA_PSA = new Edge(PMA, PSA, 1, Credit.CS);	
 		Edge PSA_PMA = new Edge(PSA, PMA, 1, Credit.CS);
 		Edge PSA_MTA = new Edge(PSA, MTA, 1, Credit.CS);
 		Edge MTA_PSA = new Edge(MTA, PSA, 1, Credit.CS);
 		
 		Edge IFD_PH04 = new Edge(IFD, PH04, 2, Credit.ST);
-		Edge PH04_SO10 = new Edge(PH04, SO10, 2, Credit.ST);
+		Edge PH04_SO10 = new Edge(PH04, SO10, 2, Credit.NB);
 		Edge SO10_LE03 = new Edge(SO10, LE03, 4, Credit.ST);
-		Edge LE03_MTC = new Edge(LE03, MTC, 4, Credit.ST);
+		Edge LE03_MTC = new Edge(LE03, MTC, 4, Credit.NB);
 		Edge LE03_EV00 = new Edge(LE03, EV00, 2, Credit.ST);
-		Edge EV00_LG00 = new Edge(EV00, LG00, 2, Credit.ST);
+		Edge EV00_LG00 = new Edge(EV00, LG00, 2, Credit.NB);
 		Edge MTC_CMA = new Edge(MTC, CMA, 4, Credit.CS);
 		Edge MTC_MTB = new Edge(MTC, MTB, 4, Credit.CS);
 		Edge MTC_PSB = new Edge(MTC, PSB, 3, Credit.CS);
 		Edge PSB_LS00 = new Edge(PSB, LS00, 5, Credit.ST);
-		Edge LS00_PSB = new Edge(LS00, PSB, 5, Credit.ST);
+		Edge LS00_PSB = new Edge(LS00, PSB, 5, Credit.NB);
 		
 		Edge ID00_PH04 = new Edge(ID00, PH04, 5, Credit.QC);
 		Edge ID00_IFD = new Edge(ID00, IFD, 3, Credit.TM);
@@ -286,17 +275,17 @@ public class GameManager {
 		Edge IFD_DT20 = new Edge(IFD, DT20, 4, Credit.TM);
 		Edge DT20_MTC = new Edge(DT20, MTC, 5, Credit.CS);
 		Edge DT20_LE03 = new Edge(DT20, LE03, 4, Credit.EC);
-		Edge LE03_PSB = new Edge(LE03, PSB, 3, Credit.CS);
+		Edge LE03_PSB = new Edge(LE03, PSB, 3, Credit.OM);
 		Edge PSB_LE03 = new Edge(PSB, LE03, 3, Credit.EC);
 		
 		Edge TNA_LO21 = new Edge(TNA, LO21, 3, Credit.TM);
 		Edge LO21_DT20 = new Edge(LO21, DT20, 3, Credit.TM);
 		Edge DT20_LO21 = new Edge(DT20, LO21, 3, Credit.TM);
 		Edge DT20_SO10 = new Edge(DT20, SO10, 1, Credit.OM);
-		Edge SO10_DT20 = new Edge(SO10, DT20, 1, Credit.TM);
+		Edge SO10_DT20 = new Edge(SO10, DT20, 1, Credit.OM);
 		Edge SO10_LR00 = new Edge(SO10, LR00, 2, Credit.EC);
 		Edge LR00_SO10 = new Edge(LR00, SO10, 2, Credit.QC);
-		Edge LR00_SO02 = new Edge(LR00, SO02, 2, Credit.TM);
+		Edge LR00_SO02 = new Edge(LR00, SO02, 2, Credit.OM);
 		Edge SO02_LR00 = new Edge(SO02, LR00, 2, Credit.EC);
 		Edge SO02_EC10 = new Edge(SO02, EC10, 2, Credit.OM);
 		Edge EC10_SO02 = new Edge(EC10, SO02, 2, Credit.OM);
@@ -315,7 +304,7 @@ public class GameManager {
 		Edge GE03_SO02 = new Edge(GE03, SO02, 2, Credit.OM);
 		Edge GE03_GE00 = new Edge(GE03, GE00, 3, Credit.OM);
 		Edge GE03_PH03 = new Edge(GE03, PH03, 3, Credit.ST);
-		Edge GE03_PH04 = new Edge(GE03, PH04, 2, Credit.ST);
+		Edge GE03_PH04 = new Edge(GE03, PH04, 2, Credit.NB);
 		
 		Edge HT07_PH03 = new Edge(HT07, PH03, 1, Credit.QC);
 		Edge HT07_EV02 = new Edge(HT07, EV02, 2, Credit.QC);
@@ -323,20 +312,20 @@ public class GameManager {
 		Edge HT07_SI02 = new Edge(HT07, SI02, 2, Credit.QC);
 		Edge HT07_PH01 = new Edge(HT07, PH01, 2, Credit.QC);
 		Edge HT07_GE00 = new Edge(HT07, GE00, 4, Credit.ST);
-		Edge GE00_HT07 = new Edge(GE00, HT07, 4, Credit.ST);
+		Edge GE00_HT07 = new Edge(GE00, HT07, 4, Credit.NB);
 		
 		Edge CC03_IFB = new Edge(CC03, IFB, 3, Credit.ST);
-		Edge CC03_TNA = new Edge(CC03, TNA, 2, Credit.ST);
+		Edge CC03_TNA = new Edge(CC03, TNA, 2, Credit.NB);
 		Edge CC03_LO21 = new Edge(CC03, LO21, 6, Credit.ST);
-		Edge CC03_IFD = new Edge(CC03, IFD, 4, Credit.ST);
+		Edge CC03_IFD = new Edge(CC03, IFD, 4, Credit.NB);
 		
 		Edge LG00_SO02 = new Edge(LG00, SO02, 4, Credit.ST);
 		Edge LG00_LR00 = new Edge(LG00, LR00, 5, Credit.EC);
-		Edge LE03_SO10 = new Edge(LE03, SO10, 4, Credit.ST);
+		Edge LE03_SO10 = new Edge(LE03, SO10, 4, Credit.NB);
 		Edge EV00_LR00 = new Edge(EV00, LR00, 3, Credit.ST);
 		Edge PMA_PSB = new Edge(PMA, PSB, 6, Credit.CS);
 		Edge MTB_LO21 = new Edge(MTB, LO21, 4, Credit.CS);
-		Edge LO21_IFD = new Edge(LO21, IFD, 3, Credit.ST);
+		Edge LO21_IFD = new Edge(LO21, IFD, 3, Credit.NB);
 		Edge IFB_MDA = new Edge(IFB, MDA, 3, Credit.TM);
 		Edge SO10_PH04 = new Edge(SO10, PH04, 2, Credit.ST);
 		Edge PH04_PH03 = new Edge(PH04, PH03, 2, Credit.QC);
@@ -451,9 +440,38 @@ public class GameManager {
 		g.insertEdge(ID00, EV02, ID00_EV02);
 		g.insertEdge(ID00, PH03, ID00_PH03);
 
-		DestinationGoalCard un = new DestinationGoalCard(MTA, MTB, 10);
-		deckdestination.add(un);
-		System.out.println(deckdestination.toString());
+		DestinationGoalCard destun = new DestinationGoalCard(MTA, MTB, 10);
+		deckDestination.add(destun);
+		DestinationGoalCard destdeux = new DestinationGoalCard(PMA, CMA, 10);
+		deckDestination.add(destdeux);
+		DestinationGoalCard desttrois = new DestinationGoalCard(MTA, MTC, 10);
+		deckDestination.add(desttrois);
+		DestinationGoalCard destquatre = new DestinationGoalCard(PSA, PSB, 10);
+		deckDestination.add(destquatre);
+		DestinationGoalCard destcinq = new DestinationGoalCard(CMA, TNA, 10);
+		deckDestination.add(destcinq);
+		DestinationGoalCard destsix = new DestinationGoalCard(IFB, IFD, 10);
+		deckDestination.add(destsix);
+		DestinationGoalCard destsept = new DestinationGoalCard(IFB, DT20, 15);
+		deckDestination.add(destsept);
+		DestinationGoalCard desthuit = new DestinationGoalCard(PH01, PH03, 10);
+		deckDestination.add(desthuit);
+		DestinationGoalCard destneuf = new DestinationGoalCard(SO02, SO10, 10);
+		deckDestination.add(destneuf);
+		DestinationGoalCard destdix = new DestinationGoalCard(LE02, LE03, 15);
+		deckDestination.add(destdix);
+		DestinationGoalCard destonze = new DestinationGoalCard(LK00, LJ00, 7);
+		deckDestination.add(destonze);
+		DestinationGoalCard destdouze = new DestinationGoalCard(LS00, LG00, 10);
+		deckDestination.add(destdouze);
+		DestinationGoalCard desttreize = new DestinationGoalCard(EV00, EV02, 20);
+		deckDestination.add(desttreize);
+		DestinationGoalCard destquatorze = new DestinationGoalCard(EC10, GE03, 7);
+		deckDestination.add(destquatorze);
+		DestinationGoalCard destquinze = new DestinationGoalCard(MDA, CC03, 10);
+		deckDestination.add(destquinze);
+		deckDestination.shuffle();
+		System.out.println(deckDestination.toString());
 	}
 	
 }

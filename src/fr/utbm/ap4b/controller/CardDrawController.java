@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import fr.utbm.ap4b.GameManager;
+import fr.utbm.ap4b.model.Credit;
 import fr.utbm.ap4b.model.CreditCard;
 import fr.utbm.ap4b.model.DestinationGoalCard;
 import javafx.fxml.FXML;
@@ -16,6 +17,8 @@ import javafx.scene.image.ImageView;
 public class CardDrawController implements Initializable {
 
 	private GameManager GM;
+	private int takedCard;
+	private static final int maxCard = 2;
 	
 	@FXML ImageView slot1;
 	@FXML ImageView slot2;
@@ -45,6 +48,17 @@ public class CardDrawController implements Initializable {
 	}
 	
 	public void actualize() {
+		//on vérifie que la pioche n'est pas vide
+		if (GM.getDeckCredit().size() == 0) {
+			System.out.println("Pioche carte crédit vide");
+			System.out.println("Cre " + GM.getDeckCredit());
+			System.out.println("dest " + GM.getDeckCreditDeleted());
+			GM.getDeckCredit().addAll(GM.getDeckCreditDeleted());
+			GM.getDeckCreditDeleted().removeAll();
+			System.out.println("Cre " + GM.getDeckCredit());
+			System.out.println("dest " + GM.getDeckCreditDeleted());
+		}
+		
 		if (GM.getDeckCredit().size() > 5) {
 			Image UV = new Image(this.getClass().getResourceAsStream("/res/img/UVCard.png"));
 			UVDeck.setImage(UV);
@@ -74,59 +88,69 @@ public class CardDrawController implements Initializable {
 		//System.out.println("CardDrawFilled");
 	}
 
-	@FXML protected void HandleMouseClickSlot1() {
-		CreditCard CC = GM.getDeckCredit().takeACard(0);
+	private void playerTakesACard(int index) {
+		CreditCard CC = GM.getDeckCredit().takeACard(index);
 		if (CC != null) {
-			GM.getCurrentPlayer().addCreditCard(CC);
-			GM.getDisplayManager().updateAll();
+			if (CC.getCreditType() == Credit.joker) {
+				System.out.println("Joker pioché");
+				if (takedCard == 0) {
+					GM.getCurrentPlayer().addCreditCard(CC);
+					takedCard = 0;
+					GM.nextPlayer();
+				} else {
+					GM.getDeckCredit().add(CC);
+					System.out.println("Vous ne pouvez pas prendre de Joker");
+				}
+				
+			} else {
+				takedCard++;
+				GM.getCurrentPlayer().addCreditCard(CC);
+				if (takedCard >= maxCard) {
+					takedCard = 0;
+					GM.nextPlayer();
+					System.out.println("Limite de carte atteinte");
+				}
+			}
+			
+		} else {
+			System.out.println("Cette emplacement est vide");
 		}
+		
+		GM.getDisplayManager().updateAll();
+	}
+
+	@FXML protected void HandleMouseClickSlot1() {
+		playerTakesACard(0);
 	}
 	
 	@FXML protected void HandleMouseClickSlot2() {
-		CreditCard CC = GM.getDeckCredit().takeACard(1);
-		if (CC != null) {
-			GM.getCurrentPlayer().addCreditCard(CC);
-			GM.getDisplayManager().updateAll();
-		}
+		playerTakesACard(1);
 	}
 	
 	@FXML protected void HandleMouseClickSlot3() {
-		CreditCard CC = GM.getDeckCredit().takeACard(2);
-		if (CC != null) {
-			GM.getCurrentPlayer().addCreditCard(CC);
-			GM.getDisplayManager().updateAll();
-		}
+		playerTakesACard(2);
 	}
 	
 	@FXML protected void HandleMouseClickSlot4() {
-		CreditCard CC = GM.getDeckCredit().takeACard(3);
-		if (CC != null) {
-			GM.getCurrentPlayer().addCreditCard(CC);
-			GM.getDisplayManager().updateAll();
-		}
+		playerTakesACard(3);
 	}
 	
 	@FXML protected void HandleMouseClickSlot5() {
-		CreditCard CC = GM.getDeckCredit().takeACard(4);
-		if (CC != null) {
-			GM.getCurrentPlayer().addCreditCard(CC);
-			GM.getDisplayManager().updateAll();
-		}
+		playerTakesACard(4);
 	}
 	
 	@FXML protected void HandleMouseClickUVDraw() {
-		CreditCard CC = GM.getDeckCredit().takeACard(5);
-		if (CC != null) {
-			GM.getCurrentPlayer().addCreditCard(CC);
-			GM.getDisplayManager().updateAll();
-		}
+		playerTakesACard(5);
 	}
 	
 	@FXML protected void HandleMouseClickDestDraw() {
 		DestinationGoalCard CC = GM.getDeckDestination().takeACard(0);
 		if (CC != null) {
 			GM.getCurrentPlayer().addDestinationCard(CC);
+			GM.nextPlayer();
 			GM.getDisplayManager().updateAll();
+		} else {
+			System.out.println("Pas de cartes destinations");
 		}
 	}
 }

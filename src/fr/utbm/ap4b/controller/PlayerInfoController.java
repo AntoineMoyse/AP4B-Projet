@@ -5,7 +5,6 @@ import java.util.ResourceBundle;
 
 import fr.utbm.ap4b.GameManager;
 import fr.utbm.ap4b.model.Credit;
-import fr.utbm.ap4b.utils.Resources;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -31,7 +30,7 @@ public class PlayerInfoController implements Initializable {
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		System.out.println("PlayerInfoLoaded");
+		//System.out.println("PlayerInfoLoaded");
 	}
 
 	public void setGameManager(GameManager gM) {
@@ -49,6 +48,6 @@ public class PlayerInfoController implements Initializable {
 		OM.setText(Integer.toString(GM.getCurrentPlayer().countCredit(Credit.OM)));
 		ST.setText(Integer.toString(GM.getCurrentPlayer().countCredit(Credit.ST)));
 		Jocker.setText(Integer.toString(GM.getCurrentPlayer().countCredit(Credit.joker)));
-		System.out.println("PlayerInfoFilled");
+		//System.out.println("PlayerInfoFilled");
 	}
 }

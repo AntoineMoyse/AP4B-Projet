@@ -13,7 +13,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 
 public class CardDraw<Card> implements Displayable {
-	private ArrayList<Card> deck = new ArrayList<Card>();
+	protected ArrayList<Card> deck = new ArrayList<Card>();
 	private GameManager GM;
 	private Parent root;
 	private CardDrawController controller;
@@ -63,6 +63,14 @@ public class CardDraw<Card> implements Displayable {
 	public void shuffle() {
 		Collections.shuffle(deck);
 	}
+	
+	public void addAll(CardDraw<Card> CD) {
+		this.deck.addAll(CD.deck);
+	}
+	
+	public void removeAll() {
+		this.deck.removeAll(deck);
+	}
 
 	@Override
 	public void start() {
@@ -77,5 +85,10 @@ public class CardDraw<Card> implements Displayable {
 	@Override
 	public void update() {
 		controller.actualize();
+	}
+	
+	@Override
+	public String toString() {
+		return "CardDraw [deck=" + deck + "]";
 	}
 }

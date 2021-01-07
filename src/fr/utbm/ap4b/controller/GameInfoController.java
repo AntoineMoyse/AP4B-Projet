@@ -20,7 +20,7 @@ public class GameInfoController implements Initializable {
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		System.out.println("GameInfoLoaded");
+		//System.out.println("GameInfoLoaded");
 		title.setText(Resources.getStringRessources("title"));
 	}
 
@@ -32,6 +32,6 @@ public class GameInfoController implements Initializable {
 		round.setText(Resources.getStringRessources("round") + GM.getRound());
 		elapsedtime.setText(Resources.getStringRessources("notImplemented"));
 		nextplayer.setText(Resources.getStringRessources("notImplemented"));
-		System.out.println("GameInfoFilled");
+		//System.out.println("GameInfoFilled");
 	}
 }

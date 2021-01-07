@@ -36,15 +36,23 @@ public class GraphUI implements Displayable {
 		});
 	
 		graphView.setEdgeDoubleClickAction(graphEdge -> {
-			//System.out.println("Length : " + graphEdge.getUnderlyingEdge().element().getLength());
-			//graphView.getStylableEdge(graphEdge.getUnderlyingEdge().element()).setStyleClass("myEdge");
-			Credit typeEdge = graphEdge.getUnderlyingEdge().element().getType();
-			int cost = graphEdge.getUnderlyingEdge().element().getLength();
-			if(putCredit(typeEdge, cost)) {
-			    graphEdge.setStyle("-fx-stroke: " + GM.getCurrentPlayer().getColor() + ";");
-			    graphEdge.getUnderlyingEdge().element().setOwner(GM.getCurrentPlayer());  
+			if (graphEdge.getUnderlyingEdge().element().getOwner() == null) {
+			    //System.out.println("Length : " + graphEdge.getUnderlyingEdge().element().getLength());
+			    //graphView.getStylableEdge(graphEdge.getUnderlyingEdge().element()).setStyleClass("myEdge");
+				Credit typeEdge = graphEdge.getUnderlyingEdge().element().getType();
+				int cost = graphEdge.getUnderlyingEdge().element().getLength();
+				if (putCredit(typeEdge, cost)) {
+				    graphEdge.setStyle("-fx-stroke: " + GM.getCurrentPlayer().getColor() + ";");
+				    graphEdge.getUnderlyingEdge().element().setOwner(GM.getCurrentPlayer());
+				    GM.getCurrentPlayer().Ajoutpoint(cost);
+				    GM.nextPlayer();
+				} else {
+					System.out.println("Vous n'avez pas assez de crédits");
+				}
+			    GM.getDisplayManager().updateAll();
+			} else {
+				System.out.println("Déjà quelqu'un a ce noeud");
 			}
-			GM.getDisplayManager().updateAll();
 		});
 		graphView.init();
 	}

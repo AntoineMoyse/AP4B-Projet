@@ -5,24 +5,24 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox xmlns="http://javafx.com/javafx/11.0.1"
-xmlns:fx="http://javafx.com/fxml/1"
+<VBox xmlns="http://javafx.com/javafx/11.0.1" 
+xmlns:fx="http://javafx.com/fxml/1" 
 fx:controller="fr.utbm.ap4b.controller.CardDrawController">
    <children>
-      <ImageView id="slot1" fx:id="slot1" fitHeight="50.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView id="slot2" fx:id="slot2" fitHeight="50.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView id="slot3" fx:id="slot3" fitHeight="50.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView id="slot4" fx:id="slot4" fitHeight="50.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView id="slot5" fx:id="slot5" fitHeight="50.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView id="slot1" fx:id="slot1" fitHeight="80.0" fitWidth="150.0" onMouseClicked="#HandleMouseClickSlot1" pickOnBounds="true" preserveRatio="true" />
+      <ImageView id="slot2" fx:id="slot2" fitHeight="80.0" fitWidth="150.0" onMouseClicked="#HandleMouseClickSlot2" pickOnBounds="true" preserveRatio="true" />
+      <ImageView id="slot3" fx:id="slot3" fitHeight="80.0" fitWidth="150.0" onMouseClicked="#HandleMouseClickSlot3" pickOnBounds="true" preserveRatio="true" />
+      <ImageView id="slot4" fx:id="slot4" fitHeight="80.0" fitWidth="150.0" onMouseClicked="#HandleMouseClickSlot4" pickOnBounds="true" preserveRatio="true" />
+      <ImageView id="slot5" fx:id="slot5" fitHeight="80.0" fitWidth="150.0" onMouseClicked="#HandleMouseClickSlot5" pickOnBounds="true" preserveRatio="true" />
       <HBox>
          <children>
-            <ImageView id="UVDeck" fx:id="UVDeck" fitHeight="50.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView id="UVDeck" fx:id="UVDeck" fitHeight="80.0" fitWidth="150.0" onMouseClicked="#HandleMouseClickUVDraw" pickOnBounds="true" preserveRatio="true" />
             <Label id="UVDeckCount" fx:id="UVDeckCount" minWidth="30.0" text="#0#" />
          </children>
       </HBox>
       <HBox>
          <children>
-            <ImageView id="DestinationGoalDeck" fx:id="DestinationGoalDeck" fitHeight="50.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView id="DestinationGoalDeck" fx:id="DestinationGoalDeck" fitHeight="80.0" fitWidth="150.0" onMouseClicked="#HandleMouseClickDestDraw" pickOnBounds="true" preserveRatio="true" />
             <Label id="DestinationGoalDeckCount" fx:id="DestinationGoalDeckCount" minWidth="30.0" text="#0#" />
          </children>
       </HBox>
