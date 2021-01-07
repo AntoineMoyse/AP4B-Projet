@@ -1,3 +1,26 @@
+#clickable:hover {
+	-fx-effect: dropshadow(three-pass-box, #000000 , 10, 0, 0, 0);
+}
+
+#value {
+	-fx-font-weight: bold;
+}
+
+#title {
+	-fx-font-size: 40px;
+	-fx-font-weight: bold;
+}
+
+#subtitle {
+	-fx-font-size: 25px;
+	-fx-font-weight: bold;
+}
+
+#sub {
+	-fx-font-size: 15px;
+	-fx-font-weight: bold;
+}
+
 .label {
-	-fx-padding: 0 3 0 0;
+	-fx-padding: 3 3 0 3;
 }

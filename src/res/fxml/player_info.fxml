@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.utbm.ap4b.controller.PlayerInfoController">
+<AnchorPane stylesheets="@../css/Main.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.utbm.ap4b.controller.PlayerInfoController">
    <children>
       <AnchorPane>
          <children>
@@ -16,28 +16,77 @@
       </AnchorPane>
       <HBox id="cardscontainer_hbox" fx:id="cardscontainer_hbox" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <VBox prefWidth="100.0">
+            <VBox prefWidth="200.0">
                <children>
-                  <Label text="%OwnedCards" />
-                  <Label text="%CS" />
-                  <Label text="%TM" />
-                  <Label text="%EC" />
-                  <Label text="%QC" />
-                  <Label text="%OM" />
-                  <Label text="%ST" />
-                  <Label text="%Jocker" />
+                  <Label id="sub" text="%OwnedCards" />
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <VBox prefWidth="100.0">
+                           <children>
+                              <Label text="%CS" />
+                              <Label text="%TM" />
+                              <Label text="%EC" />
+                              <Label text="%QC" />
+                           </children>
+                        </VBox>
+                        <VBox prefWidth="100.0">
+                           <children>
+                              <Label id="value" fx:id="CS" text="#nb#" />
+                              <Label id="value" fx:id="TM" text="#nb#" />
+                              <Label id="value" fx:id="EC" text="#nb#" />
+                              <Label id="value" fx:id="QC" text="#nb#" />
+                           </children>
+                        </VBox>
+                        <VBox prefWidth="100.0">
+                           <children>
+                              <Label text="%OM" />
+                              <Label text="%ST" />
+                              <Label text="%Jocker" />
+                              <Label text="%NB" />
+                           </children>
+                        </VBox>
+                        <VBox prefWidth="100.0">
+                           <children>
+                              <Label id="value" fx:id="OM" text="#nb#" />
+                              <Label id="value" fx:id="ST" text="#nb#" />
+                              <Label id="value" fx:id="Jocker" text="#nb#" />
+                              <Label id="value" fx:id="NB" text="#nb#" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
                </children>
             </VBox>
             <VBox prefWidth="100.0">
                <children>
-                  <Label />
-                  <Label id="CS" fx:id="CS" text="#nb#" />
-                  <Label id="TM" fx:id="TM" text="#nb#" />
-                  <Label id="EC" fx:id="EC" text="#nb#" />
-                  <Label id="QC" fx:id="QC" text="#nb#" />
-                  <Label id="OM" fx:id="OM" text="#nb#" />
-                  <Label id="ST" fx:id="ST" text="#nb#" />
-                  <Label id="Jocker" fx:id="Jocker" text="#nb#" />
+                  <Label id="sub" text="%Tableau" />
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <VBox prefWidth="100.0">
+                           <children>
+                              <Label text="%Credit" />
+                              <Label text="%Score" />
+                           </children>
+                        </VBox>
+                        <VBox prefWidth="100.0">
+                           <children>
+                              <Label id="value" fx:id="Credit_lbl" text="#nb#" />
+                              <Label id="value" fx:id="Score" text="#nb#" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox prefWidth="200.0">
+               <children>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label id="sub" prefWidth="200.0" text="%DestinationCard" />
+                        <VBox prefWidth="100.0" />
+                        <VBox prefWidth="100.0" />
+                     </children>
+                  </HBox>
                </children>
             </VBox>
          </children></HBox>

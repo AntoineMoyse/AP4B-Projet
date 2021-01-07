@@ -1,30 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox xmlns="http://javafx.com/javafx/11.0.1" 
-xmlns:fx="http://javafx.com/fxml/1" 
-fx:controller="fr.utbm.ap4b.controller.CardDrawController">
+<VBox spacing="10.0" stylesheets="@../css/Main.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.utbm.ap4b.controller.CardDrawController">
    <children>
-      <ImageView id="slot1" fx:id="slot1" fitHeight="80.0" fitWidth="150.0" onMouseClicked="#HandleMouseClickSlot1" pickOnBounds="true" preserveRatio="true" />
-      <ImageView id="slot2" fx:id="slot2" fitHeight="80.0" fitWidth="150.0" onMouseClicked="#HandleMouseClickSlot2" pickOnBounds="true" preserveRatio="true" />
-      <ImageView id="slot3" fx:id="slot3" fitHeight="80.0" fitWidth="150.0" onMouseClicked="#HandleMouseClickSlot3" pickOnBounds="true" preserveRatio="true" />
-      <ImageView id="slot4" fx:id="slot4" fitHeight="80.0" fitWidth="150.0" onMouseClicked="#HandleMouseClickSlot4" pickOnBounds="true" preserveRatio="true" />
-      <ImageView id="slot5" fx:id="slot5" fitHeight="80.0" fitWidth="150.0" onMouseClicked="#HandleMouseClickSlot5" pickOnBounds="true" preserveRatio="true" />
-      <HBox>
+      <ImageView id="clickable" fx:id="slot1" fitHeight="80.0" fitWidth="150.0" onMouseClicked="#HandleMouseClickSlot1" pickOnBounds="true" preserveRatio="true">
+         <VBox.margin>
+            <Insets />
+         </VBox.margin></ImageView>
+      <ImageView id="clickable" fx:id="slot2" fitHeight="80.0" fitWidth="150.0" onMouseClicked="#HandleMouseClickSlot2" pickOnBounds="true" preserveRatio="true" />
+      <ImageView id="clickable" fx:id="slot3" fitHeight="80.0" fitWidth="150.0" onMouseClicked="#HandleMouseClickSlot3" pickOnBounds="true" preserveRatio="true" />
+      <ImageView id="clickable" fx:id="slot4" fitHeight="80.0" fitWidth="150.0" onMouseClicked="#HandleMouseClickSlot4" pickOnBounds="true" preserveRatio="true" />
+      <ImageView id="clickable" fx:id="slot5" fitHeight="80.0" fitWidth="150.0" onMouseClicked="#HandleMouseClickSlot5" pickOnBounds="true" preserveRatio="true" />
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="150.0">
          <children>
-            <ImageView id="UVDeck" fx:id="UVDeck" fitHeight="80.0" fitWidth="150.0" onMouseClicked="#HandleMouseClickUVDraw" pickOnBounds="true" preserveRatio="true" />
-            <Label id="UVDeckCount" fx:id="UVDeckCount" minWidth="30.0" text="#0#" />
+            <ImageView id="clickable" fx:id="UVDeck" fitHeight="80.0" fitWidth="150.0" onMouseClicked="#HandleMouseClickUVDraw" pickOnBounds="true" preserveRatio="true" />
+            <Label id="value" fx:id="UVDeckCount" layoutX="-2.0" layoutY="30.0" minWidth="30.0" text="#0#" AnchorPane.leftAnchor="7.0" AnchorPane.topAnchor="7.0" />
          </children>
-      </HBox>
-      <HBox>
+      </AnchorPane>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="150.0">
          <children>
-            <ImageView id="DestinationGoalDeck" fx:id="DestinationGoalDeck" fitHeight="80.0" fitWidth="150.0" onMouseClicked="#HandleMouseClickDestDraw" pickOnBounds="true" preserveRatio="true" />
-            <Label id="DestinationGoalDeckCount" fx:id="DestinationGoalDeckCount" minWidth="30.0" text="#0#" />
+            <ImageView id="clickable" fx:id="DestinationGoalDeck" fitHeight="80.0" fitWidth="150.0" onMouseClicked="#HandleMouseClickDestDraw" pickOnBounds="true" preserveRatio="true" />
+            <Label id="value" fx:id="DestinationGoalDeckCount" layoutX="-1.0" layoutY="30.0" minWidth="30.0" text="#0#" AnchorPane.leftAnchor="7.0" AnchorPane.topAnchor="7.0" />
          </children>
-      </HBox>
+      </AnchorPane>
    </children>
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+   </padding>
 </VBox>

@@ -26,7 +26,10 @@ public class PlayerInfoController implements Initializable {
 	@FXML Label QC;
 	@FXML Label OM;
 	@FXML Label ST;
+	@FXML Label NB;
 	@FXML Label Jocker;
+	@FXML Label Credit_lbl;
+	@FXML Label Score;
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -38,7 +41,7 @@ public class PlayerInfoController implements Initializable {
 	}
 	
 	public void actualize() {
-		Image Avatar = new Image(this.getClass().getResourceAsStream("/res/img/player.png"));
+		Image Avatar = new Image(this.getClass().getResourceAsStream("/res/img/player1.png"));
 		player_img.setImage(Avatar);
 		playername_lbl.setText(GM.getCurrentPlayer().getPlayerName());
 		CS.setText(Integer.toString(GM.getCurrentPlayer().countCredit(Credit.CS)));
@@ -47,7 +50,10 @@ public class PlayerInfoController implements Initializable {
 		QC.setText(Integer.toString(GM.getCurrentPlayer().countCredit(Credit.QC)));
 		OM.setText(Integer.toString(GM.getCurrentPlayer().countCredit(Credit.OM)));
 		ST.setText(Integer.toString(GM.getCurrentPlayer().countCredit(Credit.ST)));
+		NB.setText(Integer.toString(GM.getCurrentPlayer().countCredit(Credit.NB)));
 		Jocker.setText(Integer.toString(GM.getCurrentPlayer().countCredit(Credit.joker)));
+		Credit_lbl.setText(Integer.toString(GM.getCurrentPlayer().getnbCredit()));
+		Score.setText(Integer.toString(GM.getCurrentPlayer().getpoint()));
 		//System.out.println("PlayerInfoFilled");
 	}
 }

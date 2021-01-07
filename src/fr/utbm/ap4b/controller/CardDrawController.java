@@ -40,6 +40,7 @@ public class CardDrawController implements Initializable {
 		slots.add(slot3);
 		slots.add(slot4);
 		slots.add(slot5);
+		takedCard = 0;
 		//System.out.println("CardDrawLoaded");
 	}
 
@@ -51,12 +52,8 @@ public class CardDrawController implements Initializable {
 		//on vérifie que la pioche n'est pas vide
 		if (GM.getDeckCredit().size() == 0) {
 			System.out.println("Pioche carte crédit vide");
-			System.out.println("Cre " + GM.getDeckCredit());
-			System.out.println("dest " + GM.getDeckCreditDeleted());
 			GM.getDeckCredit().addAll(GM.getDeckCreditDeleted());
 			GM.getDeckCreditDeleted().removeAll();
-			System.out.println("Cre " + GM.getDeckCredit());
-			System.out.println("dest " + GM.getDeckCreditDeleted());
 		}
 		
 		if (GM.getDeckCredit().size() > 5) {

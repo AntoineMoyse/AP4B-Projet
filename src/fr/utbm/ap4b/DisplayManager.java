@@ -35,17 +35,6 @@ public class DisplayManager extends Application {
 		GM = new GameManager(this);
 		//dans cette partie on gère tout ce qui doit être fait avant d'afficher la fenêtre.
 		
-		/*GM.getCurrentPlayer().print();
-		System.out.println(GM.getDeckCreditCard().toString());
-		GM.getCurrentPlayer().addCreditCard(GM.pickCreditCard(2));
-		System.out.println(GM.getDeckCreditCard().toString());
-		GM.getCurrentPlayer().print();
-		System.out.println(GM.putCredit("ST", 1));
-		System.out.println(GM.putCredit("TM", 1));
-		System.out.println(GM.putCredit("CS", 1));
-		System.out.println(GM.putCredit("EC", 1));
-		GM.getCurrentPlayer().print();*/
-		
 	}
 	
 	@Override

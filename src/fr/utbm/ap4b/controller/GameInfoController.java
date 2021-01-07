@@ -14,8 +14,6 @@ public class GameInfoController implements Initializable {
 	private GameManager GM;
 
 	@FXML Label round;
-	@FXML Label nextplayer;
-	@FXML Label elapsedtime;
 	@FXML Label title;
 	
 	@Override
@@ -30,8 +28,6 @@ public class GameInfoController implements Initializable {
 	
 	public void actualize() {
 		round.setText(Resources.getStringRessources("round") + GM.getRound());
-		elapsedtime.setText(Resources.getStringRessources("notImplemented"));
-		nextplayer.setText(Resources.getStringRessources("notImplemented"));
 		//System.out.println("GameInfoFilled");
 	}
 }

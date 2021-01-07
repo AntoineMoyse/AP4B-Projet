@@ -26,11 +26,20 @@ public class Player {
 	public Player(String playerName, String color, GameManager gM) {
 		PlayerName = playerName;
 		Color = color;
-		GM=gM;
-		CreditList = new int[Credit.values().length];
-		DestinationGoalList = new ArrayList<DestinationGoalCard>();
+		GM = gM;
 		nbCredit = 45;
-		point=0;
+		point = 0;
+		DestinationGoalList = new ArrayList<DestinationGoalCard>();
+		CreditList = new int[Credit.values().length];
+		
+		for (int i = 0; i<4; i++) {
+			CreditCard CD = GM.getDeckCredit().takeACard(i);
+			if (CD != null) {
+				addCreditCard(CD);
+			} else {
+				System.err.println("pas assez de cartes dnas la pioche");
+			}
+		}
 	}
 	
 	public int getnbCredit() {

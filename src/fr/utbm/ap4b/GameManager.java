@@ -57,6 +57,9 @@ public class GameManager {
 	public GameManager(DisplayManager dM) {
 		Round = 1;
 		this.DM = dM;
+		
+		Createdeck();
+		
 		Player p1 = new Player("Joueur1", "yellowgreen", this);
 		Player p2 = new Player("Joueur2", "#6720C7", this);
 		
@@ -65,7 +68,6 @@ public class GameManager {
 		Players.add(p1);
 		Players.add(p2);
 		
-		Createdeck();
 		//System.out.println(deckcredit.toString());
 		
 		PlayerCount = Players.size();
