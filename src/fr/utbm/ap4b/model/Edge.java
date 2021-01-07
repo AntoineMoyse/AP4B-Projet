@@ -6,7 +6,7 @@ public class Edge {
 	private Vertice Destination;
 	private int Length;
 	private Player Owner;
-	private String type;
+	private Credit type;
 
 	public Vertice getSource() {
 		return Source;
@@ -20,11 +20,11 @@ public class Edge {
 		return Length;
 	}
 	
-	public String getType() {
+	public Credit getType() {
 		return type;
 	}
 
-	public Edge(Vertice Source, Vertice Destination, int Cost, String type) {
+	public Edge(Vertice Source, Vertice Destination, int Cost, Credit type) {
 		this.Source = Source;
 		this.Destination = Destination;
 		this.Length = Cost;

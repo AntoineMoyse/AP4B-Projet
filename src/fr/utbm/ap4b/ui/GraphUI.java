@@ -7,6 +7,8 @@ import com.brunomnsilva.smartgraph.graphview.SmartGraphPanel;
 import com.brunomnsilva.smartgraph.graphview.SmartCircularSortedPlacementStrategy;
 
 import fr.utbm.ap4b.GameManager;
+import fr.utbm.ap4b.model.Credit;
+import fr.utbm.ap4b.model.CreditCard;
 import fr.utbm.ap4b.model.Edge;
 import fr.utbm.ap4b.model.Vertice;
 import javafx.scene.Node;
@@ -34,14 +36,15 @@ public class GraphUI implements Displayable {
 		});
 	
 		graphView.setEdgeDoubleClickAction(graphEdge -> {
-			if(GM.putCredit(graphEdge.getUnderlyingEdge().element().getType(), graphEdge.getUnderlyingEdge().element().getLength())) {
-				System.out.println("Length : " + graphEdge.getUnderlyingEdge().element().getLength());
-			    //graphView.getStylableEdge(graphEdge.getUnderlyingEdge().element()).setStyleClass("myEdge");
+			//System.out.println("Length : " + graphEdge.getUnderlyingEdge().element().getLength());
+			//graphView.getStylableEdge(graphEdge.getUnderlyingEdge().element()).setStyleClass("myEdge");
+			Credit typeEdge = graphEdge.getUnderlyingEdge().element().getType();
+			int cost = graphEdge.getUnderlyingEdge().element().getLength();
+			if(putCredit(typeEdge, cost)) {
 			    graphEdge.setStyle("-fx-stroke: " + GM.getCurrentPlayer().getColor() + ";");
-			    graphEdge.getUnderlyingEdge().element().setOwner(GM.getCurrentPlayer());
-			    GM.getCurrentPlayer().Ajoutpoint(graphEdge.getUnderlyingEdge().element().getLength());
-			    update();
+			    graphEdge.getUnderlyingEdge().element().setOwner(GM.getCurrentPlayer());  
 			}
+			GM.getDisplayManager().updateAll();
 		});
 		graphView.init();
 	}
@@ -54,5 +57,17 @@ public class GraphUI implements Displayable {
 	@Override
 	public void update() {
 		graphView.update();
+	}
+	
+	//placer les credits
+	public boolean putCredit(Credit typeEdge, int nb) {
+		if (GM.getCurrentPlayer().takeCreditCard(typeEdge, nb)) {
+			for (int i = 0; i<nb; i++) {
+				CreditCard temp = new CreditCard(typeEdge);
+				GM.getDeckCreditDeleted().add(temp);
+			}
+			return true;
+		}
+		return false;
 	}
 }

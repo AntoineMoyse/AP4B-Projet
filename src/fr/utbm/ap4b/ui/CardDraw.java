@@ -1,6 +1,8 @@
 package fr.utbm.ap4b.ui;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.ResourceBundle;
 
 import fr.utbm.ap4b.GameManager;
@@ -10,7 +12,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 
-public class CardDraw implements Displayable {
+public class CardDraw<Card> implements Displayable {
+	private ArrayList<Card> deck = new ArrayList<Card>();
 	private GameManager GM;
 	private Parent root;
 	private CardDrawController controller;
@@ -29,6 +32,36 @@ public class CardDraw implements Displayable {
 		
 		controller = fxmlLoader.<CardDrawController>getController();
 		controller.setGameManager(GM);
+	}
+	
+	public int size() {
+		return deck.size();
+	}
+	
+	public Card takeACard(int index) {
+		if (index < size()) {
+			Card CC = deck.get(index);  //on recup la carte dans une variable temporaire
+			deck.remove(index);  // on supprime la carte du deck
+			return CC;
+		} else {
+			return null;
+		}
+	}
+	
+	public Card readACard(int index) {
+		if (index < size()) {
+			return deck.get(index);
+		} else {
+			return null;
+		}
+	}
+	
+	public void add(Card CC) {
+		deck.add(CC);
+	}
+
+	public void shuffle() {
+		Collections.shuffle(deck);
 	}
 
 	@Override

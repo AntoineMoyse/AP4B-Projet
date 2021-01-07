@@ -30,6 +30,8 @@ public class GameInfoController implements Initializable {
 	
 	public void actualize() {
 		round.setText(Resources.getStringRessources("round") + GM.getRound());
+		elapsedtime.setText(Resources.getStringRessources("notImplemented"));
+		nextplayer.setText(Resources.getStringRessources("notImplemented"));
 		System.out.println("GameInfoFilled");
 	}
 }

@@ -1,5 +1,7 @@
 package fr.utbm.ap4b.model;
 
+import javafx.scene.image.Image;
+
 public class DestinationGoalCard implements Card {
 	private Vertice start;
 	private Vertice goal;
@@ -32,5 +34,11 @@ public class DestinationGoalCard implements Card {
 	@Override
 	public String toString() {
 		return start.toString()+goal.toString()+Integer.toString(point);
+	}
+	
+	@Override
+	public Image getImage() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

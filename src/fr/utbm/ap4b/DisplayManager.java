@@ -2,6 +2,7 @@ package fr.utbm.ap4b;
 
 import java.util.ArrayList;
 
+import fr.utbm.ap4b.model.CreditCard;
 import fr.utbm.ap4b.ui.CardDraw;
 import fr.utbm.ap4b.ui.Displayable;
 import fr.utbm.ap4b.ui.GameInfo;
@@ -31,7 +32,7 @@ public class DisplayManager extends Application {
 	@Override
 	public void init() throws Exception {
 		System.out.println("init methode - Thread: " + Thread.currentThread().getName());
-		GM = new GameManager();
+		GM = new GameManager(this);
 		//dans cette partie on gère tout ce qui doit être fait avant d'afficher la fenêtre.
 		
 		GM.getCurrentPlayer().print();
@@ -50,14 +51,15 @@ public class DisplayManager extends Application {
 	@Override
 	public void start(Stage NewStage) throws Exception {
 		System.out.println("Start methode - Thread: " + Thread.currentThread().getName());
+		GM = new GameManager(this);
 		//dans cette partie on s'occupe de générer la fenêtre
 		
 		mainStage = NewStage; //l'objet qui contient le fenêtre nous est donné par la superclass
 		mainStage.setTitle(Resources.getStringRessources("title"));//on redéfini son titre
 		mainStage.getIcons().add(new Image(getClass().getResourceAsStream("/res/img/ticketToUTBMbiais.png")));//on défini l'icone
 		mainStage.setResizable(true);//on défini quelques propriétés
-		mainStage.setMinHeight(400);
-		mainStage.setMinWidth(500);
+		mainStage.setMinHeight(800);
+		mainStage.setMinWidth(1200);
 		
 		//create the graph
 		GraphUI graphUI = new GraphUI(GM);
@@ -76,7 +78,7 @@ public class DisplayManager extends Application {
 		root.setBottom(PI.getNode());
 		root.setRight(CD.getNode());
 		root.setTop(GI.getNode());
-		Scene scene = new Scene(root, 1000, 600);
+		Scene scene = new Scene(root, 1200, 800);
 		
 		mainStage.setScene(scene);
 		mainStage.show();//on affiche la fenêtre

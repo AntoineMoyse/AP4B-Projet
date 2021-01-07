@@ -8,36 +8,36 @@
 
 <AnchorPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.utbm.ap4b.controller.PlayerInfoController">
    <children>
-      <AnchorPane prefHeight="100.0" prefWidth="100.0">
+      <AnchorPane>
          <children>
-            <ImageView id="player_img" fx:id="player_img" fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-            <Label id="playername_lbl" fx:id="playername_lbl" alignment="CENTER" text="#PlayerName#" textAlignment="CENTER" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+            <ImageView id="player_img" fx:id="player_img" fitHeight="140.0" fitWidth="140.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+            <Label id="playername_lbl" fx:id="playername_lbl" alignment="CENTER" text="#PlayerName#" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
          </children>
       </AnchorPane>
       <HBox id="cardscontainer_hbox" fx:id="cardscontainer_hbox" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <VBox prefHeight="200.0" prefWidth="100.0">
+            <VBox prefWidth="100.0">
                <children>
-                  <Label text="#OwnedCards#" />
-                  <Label text="#CS#" />
-                  <Label text="#TM#" />
-                  <Label text="#EC#" />
-                  <Label text="#QC#" />
-                  <Label text="#OM#" />
-                  <Label text="#ST#" />
-                  <Label text="#Jocker#" />
+                  <Label text="%OwnedCards" />
+                  <Label text="%CS" />
+                  <Label text="%TM" />
+                  <Label text="%EC" />
+                  <Label text="%QC" />
+                  <Label text="%OM" />
+                  <Label text="%ST" />
+                  <Label text="%Jocker" />
                </children>
             </VBox>
-            <VBox prefHeight="200.0" prefWidth="100.0">
+            <VBox prefWidth="100.0">
                <children>
                   <Label />
-                  <Label text="#nb#" />
-                  <Label text="#nb#" />
-                  <Label text="#nb#" />
-                  <Label text="#nb#" />
-                  <Label text="#nb#" />
-                  <Label text="#nb#" />
-                  <Label text="#nb#" />
+                  <Label id="CS" fx:id="CS" text="#nb#" />
+                  <Label id="TM" fx:id="TM" text="#nb#" />
+                  <Label id="EC" fx:id="EC" text="#nb#" />
+                  <Label id="QC" fx:id="QC" text="#nb#" />
+                  <Label id="OM" fx:id="OM" text="#nb#" />
+                  <Label id="ST" fx:id="ST" text="#nb#" />
+                  <Label id="Jocker" fx:id="Jocker" text="#nb#" />
                </children>
             </VBox>
          </children></HBox>

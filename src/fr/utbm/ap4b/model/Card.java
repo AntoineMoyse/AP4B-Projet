@@ -1,5 +1,7 @@
 package fr.utbm.ap4b.model;
 
-public interface Card {
+import javafx.scene.image.Image;
 
+public interface Card {
+	public Image getImage();
 }
