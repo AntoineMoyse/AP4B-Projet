@@ -58,11 +58,11 @@ public class Player {
 	}
 	
 	//retirer une card du deck credit
-	/*public CreditCard pickCreditCardDeck(int index) {
+	public CreditCard pickCreditCardDeck(int index) {
 		CreditCard temp = this.CreditList.get(index);
 		this.CreditList.remove(index);
 		return temp;
-	}*/
+	}
 	
 	public boolean takeCreditCard(Credit typeEdge, int nb) {
 		int nbCardSameCredit = 0;
@@ -75,7 +75,7 @@ public class Player {
 		}
 	}
 	
-	/*public int isPossibleToPutCredit(Credit typeEdge, int nb) {
+	public int isPossibleToPutCredit(Credit typeEdge, int nb) {
 		
 		int nbCardSameCredit = 0;
 		int listCreditCard = new int[]; // liste des index à enlever du deck du joueur si il a assez de credit du bon type
@@ -93,7 +93,7 @@ public class Player {
 			return listCreditCard;
 		else
 			return emptyList;
-	}*/
+	}
 	
 	@Override
 	public String toString() {

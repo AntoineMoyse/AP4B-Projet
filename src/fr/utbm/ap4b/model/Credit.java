@@ -7,5 +7,6 @@ public enum Credit {
 	QC,
 	OM,
 	ST,
+	NB,
 	joker
 }

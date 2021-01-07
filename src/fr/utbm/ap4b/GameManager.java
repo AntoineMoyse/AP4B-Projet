@@ -22,31 +22,34 @@ public class GameManager {
 	private int PlayerCount;
 	private int CurrentPlayerID;
 	
-	private ArrayList<CreditCard> deckcredit = new ArrayList<CreditCard>();
-	private ArrayList<CreditCard> deckDeleted = new ArrayList<CreditCard>();
-	private ArrayList<DestinationGoalCard> deckdestination= new ArrayList<DestinationGoalCard>();
+	private CardDraw<CreditCard> deckCredit;
+	private CardDraw<CreditCard> deckCreditDeleted;
+	private CardDraw<DestinationGoalCard> deckDestination;
 	
 	
 	public void Createdeck() {
+		deckCredit = new CardDraw<CreditCard>(this);
+		deckCreditDeleted = new CardDraw<CreditCard>(this);
+		deckDestination = new CardDraw<DestinationGoalCard>(this);
 		int i;
 		for(i=0;i<14;i++)
 		{
-			CreditCard CS = new CreditCard("CS");
-			deckcredit.add(CS);
-			CreditCard TM = new CreditCard("TM");
-			deckcredit.add(TM);
-			CreditCard OM = new CreditCard("OM");
-			deckcredit.add(OM);
-			CreditCard EC = new CreditCard("EC");
-			deckcredit.add(EC);
-			CreditCard QC = new CreditCard("QC");
-			deckcredit.add(QC);
-			CreditCard ST = new CreditCard("ST");
-			deckcredit.add(ST);
-			CreditCard NS = new CreditCard("NS");
-			deckcredit.add(NS);
-			CreditCard Bonus = new CreditCard("Bonus");
-			deckcredit.add(Bonus);
+			CreditCard CS = new CreditCard(Credit.CS);
+			deckCredit.add(CS);
+			CreditCard TM = new CreditCard(Credit.TM);
+			deckCredit.add(TM);
+			CreditCard OM = new CreditCard(Credit.OM);
+			deckCredit.add(OM);
+			CreditCard EC = new CreditCard(Credit.EC);
+			deckCredit.add(EC);
+			CreditCard QC = new CreditCard(Credit.QC);
+			deckCredit.add(QC);
+			CreditCard ST = new CreditCard(Credit.ST);
+			deckCredit.add(ST);
+			CreditCard NS = new CreditCard(Credit.NB);
+			deckCredit.add(NS);
+			CreditCard Bonus = new CreditCard(Credit.joker);
+			deckCredit.add(Bonus);
 		}
 		deckCredit.shuffle();
 	}
@@ -54,8 +57,8 @@ public class GameManager {
 	public GameManager(DisplayManager dM) {
 		Round = 1;
 		this.DM = dM;
-		Player p1 = new Player("Joueur1", "yellowgreen");
-		Player p2 = new Player("Joueur2", "#6720C7");
+		Player p1 = new Player("Joueur1", "yellowgreen", this);
+		Player p2 = new Player("Joueur2", "#6720C7", this);
 		
 		CurrentPlayer = p1;
 		CurrentPlayerID = 0;
@@ -86,7 +89,7 @@ public class GameManager {
 	
 	//public start_game()
 	public void printDeck() {
-		System.out.println(deckcredit.toString());
+		System.out.println(deckCredit.toString());
 	}
 	
 	public Player getCurrentPlayer() {
@@ -107,16 +110,16 @@ public class GameManager {
 		return Round;
 	}
 	
-	public ArrayList<CreditCard> getDeckCreditCard() {
-		return this.deckcredit;
+	public CardDraw<CreditCard> getDeckCreditCard() {
+		return this.deckCredit;
 	}
 	
 	
 	//pick une carte crédit
 	public CreditCard pickCreditCard(int index) {
 		
-		CreditCard temp = new CreditCard(this.deckcredit.get(index));	//on recup la carte dans une variable temporaire
-		this.deckcredit.remove(index);	// on supprime la carte du deck
+		CreditCard temp = new CreditCard(this.deckCredit.get(index));	//on recup la carte dans une variable temporaire
+		this.deckCredit.remove(index);	// on supprime la carte du deck
 		
 		return temp;	
 	}
@@ -124,13 +127,14 @@ public class GameManager {
 	//pick une carte destination
 	public DestinationGoalCard pickDestinationGoalCard(int index) {
 		
-		DestinationGoalCard temp = new DestinationGoalCard(this.deckdestination.get(index));//on recup la carte dans une variable temporaire
-		this.deckdestination.remove(index);// on supprime la carte du deck
+		DestinationGoalCard temp = new DestinationGoalCard(this.deckDestination.get(index));//on recup la carte dans une variable temporaire
+		this.deckDestination.remove(index);// on supprime la carte du deck
 		
 		return temp;
 	}
 	
 	//placer les credits
+	
 	public boolean putCredit(String typeEdge, int nb) {
 		
 		//on verifi si le joueur actuel peut prendre un chemin
@@ -138,7 +142,7 @@ public class GameManager {
 		
 		if(listCreditCard.isEmpty()==false) {
 			for(int i=0;i<nb;i++) {
-				deckDeleted.add(this.CurrentPlayer.pickCreditCardDeck(listCreditCard.get(i)));
+				deckCreditDeleted.add(this.CurrentPlayer.pickCreditCardDeck(listCreditCard.get(i)));
 			}
 			return true;
 		}
